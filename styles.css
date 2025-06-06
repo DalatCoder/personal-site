@@ -472,17 +472,15 @@ body::after {
 }
 
 .name {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease infinite;
+    text-align: center;
 }
+
+
 
 .job-title {
     font-size: 1.2em;
@@ -1447,7 +1445,7 @@ body::after {
 
 @media (max-width: 1024px) {
     .name {
-        font-size: 2.2em;
+        font-size: 1.8em;
     }
     
     .job-title {
@@ -1491,7 +1489,7 @@ body::after {
     }
     
     .name {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
     
     .qr-section h3, .youtube-series h3, .social-section h3, .timeline-section h3, .github-section h3 {
@@ -1558,6 +1556,22 @@ body::after {
 }
 
 @media (max-width: 480px) {
+    .name {
+        font-size: 1.4em;
+        margin-bottom: 12px;
+    }
+    
+    .job-title {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
     .qr-header h3 {
         font-size: 1.5em;
     }
