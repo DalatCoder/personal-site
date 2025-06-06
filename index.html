@@ -102,45 +102,67 @@
             <div class="qr-content">
                 <div class="qr-header">
                     <h3>📱 Kết nối ngay qua Zalo</h3>
-                    <p class="qr-subtitle">Quét mã QR hoặc nhấn để sao chép link</p>
                 </div>
                 
-                <div class="qr-main-container">
-                    <div class="qr-container">
-                        <div class="qr-frame">
-                            <div class="qr-corners">
-                                <div class="corner corner-tl"></div>
-                                <div class="corner corner-tr"></div>
-                                <div class="corner corner-bl"></div>
-                                <div class="corner corner-br"></div>
-                            </div>
-                            <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu" class="qr-image">
-                            <div class="scan-line"></div>
+                <div class="qr-scanner-container">
+                    <!-- Simplified QR Frame -->
+                    <div class="qr-frame-simple">
+                        <div class="qr-corners">
+                            <div class="corner corner-tl"></div>
+                            <div class="corner corner-tr"></div>
+                            <div class="corner corner-bl"></div>
+                            <div class="corner corner-br"></div>
                         </div>
                         
-                        <div class="qr-info">
-                            <div class="qr-title">
-                                <i class="fab fa-whatsapp zalo-icon"></i>
-                                <span>Zalo QR Code</span>
-                            </div>
-                            <p class="qr-instruction">Mở Zalo và quét mã này để chat</p>
+                        <!-- QR Code -->
+                        <div class="qr-image-container">
+                            <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu" class="qr-image">
                         </div>
                     </div>
                     
-                    <div class="qr-actions">
-                        <button class="qr-action-btn" onclick="downloadQR()">
-                            <i class="fas fa-download"></i>
-                            <span>Tải xuống</span>
-                        </button>
-                        <button class="qr-action-btn" onclick="shareQR()">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Chia sẻ</span>
-                        </button>
-                        <button class="qr-action-btn" onclick="copyLink()">
-                            <i class="fas fa-copy"></i>
-                            <span>Sao chép link</span>
-                        </button>
+                    <!-- QR Info Card -->
+                    <div class="qr-info-card">
+                        <div class="qr-brand">
+                            <div class="brand-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="brand-info">
+                                <h4>Zalo Chat</h4>
+                                <p>Nguyễn Trọng Hiếu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="qr-instructions">
+                            <div class="instruction-step">
+                                <div class="step-number">1</div>
+                                <span>Mở ứng dụng Zalo</span>
+                            </div>
+                            <div class="instruction-step">
+                                <div class="step-number">2</div>
+                                <span>Chọn "Quét mã QR"</span>
+                            </div>
+                            <div class="instruction-step">
+                                <div class="step-number">3</div>
+                                <span>Hướng camera vào mã QR</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="qr-actions-new">
+                    <button class="qr-btn primary" onclick="downloadQR()">
+                        <i class="fas fa-download"></i>
+                        <span>Tải xuống QR</span>
+                    </button>
+                    <button class="qr-btn secondary" onclick="copyLink()">
+                        <i class="fas fa-link"></i>
+                        <span>Sao chép link</span>
+                    </button>
+                    <button class="qr-btn secondary" onclick="shareQR()">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Chia sẻ</span>
+                    </button>
                 </div>
             </div>
         </section>

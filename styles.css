@@ -31,16 +31,16 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .navigation.scrolled {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(25px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav-container {
@@ -161,7 +161,7 @@ body {
         left: 0;
         right: 0;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(25px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding: 20px;
@@ -579,7 +579,7 @@ body::after {
     text-decoration: underline;
 }
 
-/* QR Section */
+/* QR Section - Modern Scanner Design */
 .qr-section {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -597,96 +597,81 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
     animation: floatingParticles 20s ease-in-out infinite;
     pointer-events: none;
 }
 
 .qr-content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 40px;
     position: relative;
     z-index: 1;
 }
 
-.qr-header {
-    margin-bottom: 50px;
-}
-
 .qr-header h3 {
-    font-size: 2.2em;
-    margin-bottom: 15px;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 50px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(45deg, #fff, #e8f0ff, #fff);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite;
 }
 
 .qr-subtitle {
-    font-size: 1.1em;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.3em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.qr-main-container {
+/* Scanner Container */
+.qr-scanner-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
-.qr-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    padding: 40px;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
-                      linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-size: 400% 400%;
-    display: inline-block;
-    transition: all 0.4s ease;
+/* Simplified QR Frame */
+.qr-frame-simple {
     position: relative;
+    width: 280px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    margin-bottom: 30px;
-    animation: gradientBorder 6s ease infinite;
+    transition: all 0.3s ease;
 }
 
-.qr-container::after {
-    content: '';
+.qr-frame-simple:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(79, 172, 254, 0.5);
+}
+
+/* Simplified Corners */
+.qr-corners {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, transparent 60%, rgba(255, 255, 255, 0.05) 100%);
-    border-radius: 25px;
-    pointer-events: none;
-}
-
-.qr-container:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-}
-
-.qr-frame {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-    background: transparent;
-}
-
-.qr-corners {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
     pointer-events: none;
 }
 
@@ -695,166 +680,196 @@ body::after {
     width: 25px;
     height: 25px;
     border: 3px solid #4facfe;
-    border-radius: 3px;
-    animation: cornerPulse 2s ease-in-out infinite;
+    border-radius: 4px;
 }
 
 .corner-tl {
-    top: 0;
-    left: 0;
+    top: 15px;
+    left: 15px;
     border-right: none;
     border-bottom: none;
 }
 
 .corner-tr {
-    top: 0;
-    right: 0;
+    top: 15px;
+    right: 15px;
     border-left: none;
     border-bottom: none;
 }
 
 .corner-bl {
-    bottom: 0;
-    left: 0;
+    bottom: 15px;
+    left: 15px;
     border-right: none;
     border-top: none;
 }
 
 .corner-br {
-    bottom: 0;
-    right: 0;
+    bottom: 15px;
+    right: 15px;
     border-left: none;
     border-top: none;
 }
 
-.qr-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 20px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+/* QR Image Container */
+.qr-image-container {
     position: relative;
     z-index: 2;
 }
 
-.qr-image:hover {
-    transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 30px rgba(79, 172, 254, 0.4);
+.qr-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
-.scan-line {
+.qr-image:hover {
+    transform: scale(1.02);
+    border-color: #4facfe;
+}
+
+/* Simple Scan Indicator */
+.scan-indicator {
     position: absolute;
-    top: 50%;
+    bottom: 10px;
     left: 50%;
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #4facfe, transparent);
-    transform: translate(-50%, -50%);
-    animation: scanMove 3s ease-in-out infinite;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 3;
 }
 
-.qr-info {
-    text-align: center;
-    background: transparent;
+.indicator-text {
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
 }
 
-.qr-title {
+/* QR Info Card */
+.qr-info-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.qr-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #0084FF, #00D4FF);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(0, 132, 255, 0.3);
+}
+
+.brand-info h4 {
+    color: white;
+    margin: 0 0 5px 0;
     font-size: 1.2em;
     font-weight: 600;
-    color: white;
-    margin-bottom: 8px;
 }
 
-.zalo-icon {
-    font-size: 1.3em;
-    color: #0084FF;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-.qr-instruction {
-    color: rgba(255, 255, 255, 0.8);
+.brand-info p {
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
+    font-size: 0.9em;
+}
+
+.qr-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.instruction-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.95em;
 }
 
-.qr-actions {
+.step-number {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Action Buttons */
+.qr-actions-new {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.qr-action-btn {
+.qr-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9em;
+    gap: 10px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95em;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
 }
 
-.qr-action-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
+.qr-btn.primary {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
 }
 
-.qr-action-btn:hover::before {
-    left: 100%;
-}
-
-.qr-action-btn:hover {
+.qr-btn.primary:hover {
     transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(79, 172, 254, 0.6);
+}
+
+.qr-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.qr-btn.secondary:hover {
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* QR Animations */
-@keyframes cornerPulse {
-    0%, 100% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-}
-
-@keyframes scanMove {
-    0%, 100% {
-        transform: translate(-50%, -50%) translateY(-50px);
-        opacity: 0;
-    }
-    10%, 90% {
-        opacity: 1;
-    }
-    50% {
-        transform: translate(-50%, -50%) translateY(50px);
-        opacity: 1;
-    }
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* YouTube Series Section */
@@ -1495,82 +1510,87 @@ body::after {
     }
 }
 
-@media (max-width: 480px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
+/* QR Responsive Adjustments */
+@media (max-width: 768px) {
+    .qr-header h3 {
+        font-size: 1.8em;
+    }
+    
+    .qr-subtitle {
+        font-size: 1.1em;
         padding: 0 15px;
     }
     
-    .info-section, .qr-section, .youtube-series, .social-section, .timeline-section, .github-section {
-        padding: 40px 0;
+    .qr-scanner-container {
+        flex-direction: column;
+        gap: 30px;
     }
     
-    .info-item {
-        padding: 15px;
-    }
-    
-    .qr-container {
-        padding: 25px;
+    .qr-frame-simple {
+        width: 250px;
+        height: 250px;
     }
     
     .qr-image {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
     
-    .series-content {
-        padding: 20px;
+    .corner {
+        width: 22px;
+        height: 22px;
+        border-width: 2px;
     }
     
-    .name {
-        font-size: 1.5em;
+    .qr-info-card {
+        max-width: 100%;
+        margin: 0 20px;
     }
     
-    .avatar {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .repo-card {
-        padding: 20px;
-    }
-    
-    .repo-name {
-        font-size: 1.1em;
-    }
-    
-    .repos-grid {
-        grid-template-columns: 1fr;
+    .qr-actions-new {
         gap: 15px;
+    }
+    
+    .qr-btn {
+        padding: 12px 20px;
+        font-size: 0.9em;
     }
 }
 
-@media (max-width: 320px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
+@media (max-width: 480px) {
+    .qr-header h3 {
+        font-size: 1.5em;
+    }
+    
+    .qr-subtitle {
+        font-size: 1em;
         padding: 0 10px;
+        line-height: 1.5;
     }
     
-    .info-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .qr-frame-simple {
+        width: 220px;
+        height: 220px;
     }
     
-    .social-btn {
-        width: 200px;
-        font-size: 0.9em;
-        padding: 12px 20px;
+    .qr-image {
+        width: 160px;
+        height: 160px;
     }
     
-    .github-btn {
-        width: 200px;
-        font-size: 0.9em;
-        padding: 12px 20px;
+    .corner {
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
     }
     
-    .repo-card {
-        padding: 15px;
+    .qr-actions-new {
+        flex-direction: column;
+        gap: 12px;
     }
     
-    .timeline-card {
-        padding: 15px;
+    .qr-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
