@@ -1,0 +1,88 @@
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+.well-known/
+.user.ini
+.htaccess
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Node.js (if using build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+public/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Image optimization temp files
+*.webp.tmp
+*.jpg.tmp
+*.png.tmp
+
+# FTP/SFTP deployment files
+.ftppass
+.ftpconfig
+sftp-config.json
+
+# Server logs
+access.log
+error.log
+*.log
+
+# SSL certificates (if any)
+*.key
+*.crt
+*.pem
+*.p12
+
+# Database files (if any)
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation temp files
+.doctrees/
+docs/_build/

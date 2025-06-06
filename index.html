@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Trọng Hiếu - Trợ giảng CNTT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            font-size: 24px;
+            color: #667eea;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .info-value a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-value a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .youtube-series {
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .youtube-series h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .series-card {
+            background: white;
+            border-radius: 15px;
+            padding: 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+        }
+
+        .series-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .series-content {
+            padding: 20px;
+        }
+
+        .series-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .series-description {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .series-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .series-link:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a419a);
+            transform: translateY(-1px);
+        }
+
+        .series-link i {
+            margin-right: 8px;
+        }
+
+        .social-links {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.3em;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-btn i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .series-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container {
+                height: 180px;
+            }
+
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .social-btn {
+                display: block;
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/avatar.jpg" alt="Nguyễn Trọng Hiếu" class="avatar">
+            <h1 class="name">Nguyễn Trọng Hiếu</h1>
+            <p class="job-title">Trợ giảng tại Khoa Công nghệ Thông tin<br>Trường Đại học Đà Lạt</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-label">Ngày sinh</div>
+                        <div class="info-value">11/03/2000</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-label">Công việc hiện tại</div>
+                        <div class="info-value">Trợ giảng tại Khoa CNTT, ĐH Đà Lạt</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-label">Số điện thoại</div>
+                        <div class="info-value">
+                            <a href="tel:+84379289399">(84) 379.289.399</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:hieu.ngxtr@gmail.com">hieu.ngxtr@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="youtube-series">
+                <h3>📚 Series Lập Trình</h3>
+                <div class="series-grid">
+                    <div class="series-card">
+                        <div class="video-container">
+                            <iframe class="video-iframe" 
+                                src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKfcdDloZIhpUrkbPplabO-u" 
+                                title="Lập trình cơ bản với C#" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="series-content">
+                            <div class="series-title">Lập trình cơ bản với C#</div>
+                            <div class="series-description">Học lập trình C# từ cơ bản thông qua các dự án thực tế</div>
+                            <a href="https://www.youtube.com/playlist?list=PLprElE4eCkKfcdDloZIhpUrkbPplabO-u" target="_blank" class="series-link">
+                                <i class="fab fa-youtube"></i>
+                                Xem Toàn Bộ Playlist
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="series-card">
+                        <div class="video-container">
+                            <iframe class="video-iframe" 
+                                src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKd56qWgNO6oz9irkQq_RCjl" 
+                                title="Lập trình hướng đối tượng với C#" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="series-content">
+                            <div class="series-title">Lập trình hướng đối tượng</div>
+                            <div class="series-description">Tìm hiểu sâu về OOP với C# - từ cơ bản đến nâng cao</div>
+                            <a href="https://www.youtube.com/playlist?list=PLprElE4eCkKd56qWgNO6oz9irkQq_RCjl" target="_blank" class="series-link">
+                                <i class="fab fa-youtube"></i>
+                                Xem Toàn Bộ Playlist
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="series-card">
+                        <div class="video-container">
+                            <iframe class="video-iframe" 
+                                src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKeHs9EWpQWr0AtxJD_16V8N" 
+                                title="Dự án Quản lý nhân viên" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="series-content">
+                            <div class="series-title">Dự án Quản lý nhân viên</div>
+                            <div class="series-description">Xây dựng ứng dụng quản lý nhân viên hoàn chỉnh</div>
+                            <a href="https://www.youtube.com/playlist?list=PLprElE4eCkKeHs9EWpQWr0AtxJD_16V8N" target="_blank" class="series-link">
+                                <i class="fab fa-youtube"></i>
+                                Xem Toàn Bộ Playlist
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <h3>Kết nối với tôi</h3>
+                <a href="https://fb.com/dalatcoder" target="_blank" class="social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </a>
+                <a href="https://github.com/dalatcoder" target="_blank" class="social-btn">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://youtube.com/@dalatcoder" target="_blank" class="social-btn">
+                    <i class="fab fa-youtube"></i>
+                    YouTube
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Nguyễn Trọng Hiếu. Được tạo với ❤️</p>
+        </div>
+    </div>
+</body>
+</html>
