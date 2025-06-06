@@ -404,12 +404,12 @@ body::after {
 }
 
 .qr-container {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     padding: 40px;
     border-radius: 25px;
     border: 2px solid transparent;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
                       linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
     background-origin: border-box;
     background-clip: content-box, border-box;
@@ -443,6 +443,7 @@ body::after {
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
+    background: transparent;
 }
 
 .qr-corners {
@@ -521,6 +522,7 @@ body::after {
 
 .qr-info {
     text-align: center;
+    background: transparent;
 }
 
 .qr-title {
