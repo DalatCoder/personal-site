@@ -60,13 +60,70 @@
         <!-- QR Code Section -->
         <section class="qr-section">
             <div class="qr-content">
-                <h3>📱 Liên hệ nhanh qua Zalo</h3>
-                <div class="qr-container">
-                    <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu" class="qr-image">
-                    <div class="qr-text">Quét mã QR để kết nối với tôi</div>
-                    <div class="qr-label">
-                        <i class="fas fa-qrcode"></i>
-                        Zalo QR Code
+                <div class="qr-header">
+                    <h3>📱 Kết nối ngay qua Zalo</h3>
+                    <p class="qr-subtitle">Quét mã QR hoặc nhấn để sao chép link</p>
+                </div>
+                
+                <div class="qr-main-container">
+                    <div class="qr-container">
+                        <div class="qr-frame">
+                            <div class="qr-corners">
+                                <div class="corner corner-tl"></div>
+                                <div class="corner corner-tr"></div>
+                                <div class="corner corner-bl"></div>
+                                <div class="corner corner-br"></div>
+                            </div>
+                            <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu" class="qr-image">
+                            <div class="scan-line"></div>
+                        </div>
+                        
+                        <div class="qr-info">
+                            <div class="qr-title">
+                                <i class="fab fa-whatsapp zalo-icon"></i>
+                                <span>Zalo QR Code</span>
+                            </div>
+                            <p class="qr-instruction">Mở Zalo và quét mã này để chat</p>
+                        </div>
+                    </div>
+                    
+                    <div class="qr-actions">
+                        <button class="qr-action-btn" onclick="downloadQR()">
+                            <i class="fas fa-download"></i>
+                            <span>Tải xuống</span>
+                        </button>
+                        <button class="qr-action-btn" onclick="shareQR()">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Chia sẻ</span>
+                        </button>
+                        <button class="qr-action-btn" onclick="copyLink()">
+                            <i class="fas fa-copy"></i>
+                            <span>Sao chép link</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="qr-instructions">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Mở ứng dụng Zalo</h4>
+                            <p>Khởi động Zalo trên điện thoại của bạn</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Chọn "Quét mã QR"</h4>
+                            <p>Tìm biểu tượng quét mã QR trong ứng dụng</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Quét mã và kết nối</h4>
+                            <p>Hướng camera vào mã QR và bắt đầu trò chuyện</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -380,6 +437,199 @@
             // Delay loading slightly to improve page load performance
             setTimeout(loadGitHubRepos, 1000);
         });
+
+        // QR Code Action Functions
+        function downloadQR() {
+            const link = document.createElement('a');
+            link.href = 'assets/QR.jpg';
+            link.download = 'Zalo-QR-NguyenTrongHieu.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show success feedback
+            showNotification('📥 Đã tải xuống mã QR thành công!', 'success');
+        }
+
+        function shareQR() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Kết nối với Nguyễn Trọng Hiếu qua Zalo',
+                    text: 'Quét mã QR này để chat với tôi trên Zalo',
+                    url: window.location.href
+                }).then(() => {
+                    showNotification('📤 Đã chia sẻ thành công!', 'success');
+                }).catch((error) => {
+                    console.log('Error sharing:', error);
+                    copyLink(); // Fallback to copy link
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                copyLink();
+            }
+        }
+
+        function copyLink() {
+            const textToCopy = window.location.href;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showNotification('🔗 Đã sao chép link website!', 'success');
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(textToCopy);
+                });
+            } else {
+                fallbackCopyTextToClipboard(textToCopy);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showNotification('🔗 Đã sao chép link website!', 'success');
+                } else {
+                    showNotification('❌ Không thể sao chép. Vui lòng sao chép thủ công.', 'error');
+                }
+            } catch (err) {
+                showNotification('❌ Không thể sao chép. Vui lòng sao chép thủ công.', 'error');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            // Add styles if not already present
+            if (!document.querySelector('#notification-styles')) {
+                const styles = document.createElement('style');
+                styles.id = 'notification-styles';
+                styles.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: rgba(255, 255, 255, 0.95);
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        border-radius: 15px;
+                        padding: 15px 20px;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        z-index: 10000;
+                        animation: slideInFromRight 0.3s ease-out;
+                        max-width: 350px;
+                        min-width: 300px;
+                    }
+                    
+                    .notification-success {
+                        border-left: 4px solid #4CAF50;
+                    }
+                    
+                    .notification-error {
+                        border-left: 4px solid #f44336;
+                    }
+                    
+                    .notification-content {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 15px;
+                    }
+                    
+                    .notification-message {
+                        color: #333;
+                        font-weight: 500;
+                        font-size: 0.9em;
+                        flex: 1;
+                    }
+                    
+                    .notification-close {
+                        background: none;
+                        border: none;
+                        color: #666;
+                        cursor: pointer;
+                        padding: 5px;
+                        border-radius: 50%;
+                        width: 25px;
+                        height: 25px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.2s ease;
+                    }
+                    
+                    .notification-close:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                        color: #333;
+                    }
+                    
+                    @keyframes slideInFromRight {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                    
+                    @media (max-width: 480px) {
+                        .notification {
+                            top: 10px;
+                            right: 10px;
+                            left: 10px;
+                            max-width: none;
+                            min-width: auto;
+                        }
+                    }
+                `;
+                document.head.appendChild(styles);
+            }
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideInFromRight 0.3s ease-out reverse';
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 4000);
+        }
     </script>
 </body>
 </html>
