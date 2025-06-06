@@ -142,6 +142,62 @@
             text-decoration: underline;
         }
 
+        .qr-section {
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .qr-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .qr-container {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #f0f0f0;
+        }
+
+        .qr-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .qr-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .qr-text {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .qr-label {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         .youtube-series {
             margin: 40px 0;
             padding: 30px 0;
@@ -289,6 +345,15 @@
                 height: 180px;
             }
 
+            .qr-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .qr-container {
+                padding: 15px;
+            }
+
             .container {
                 margin: 10px;
                 border-radius: 15px;
@@ -369,6 +434,18 @@
                         <div class="info-value">
                             <a href="mailto:hieu.ngxtr@gmail.com">hieu.ngxtr@gmail.com</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="qr-section">
+                <h3>📱 Liên hệ nhanh qua Zalo</h3>
+                <div class="qr-container">
+                    <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu" class="qr-image">
+                    <div class="qr-text">Quét mã QR để kết nối với tôi</div>
+                    <div class="qr-label">
+                        <i class="fas fa-qrcode"></i>
+                        Zalo QR Code
                     </div>
                 </div>
             </div>
