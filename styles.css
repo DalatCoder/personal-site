@@ -1,4 +1,3 @@
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -119,6 +118,37 @@ section {
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@keyframes markerPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }
 
@@ -738,9 +768,225 @@ body::after {
     font-size: 1em;
 }
 
+/* GitHub Repositories Section */
+.github-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 80px 0;
+}
+
+.github-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.github-section h3 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.repos-loading {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+}
+
+.repos-loading i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.repos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.repo-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: floatUp 6s ease-in-out infinite;
+}
+
+.repo-card:nth-child(1) { animation-delay: 0s; }
+.repo-card:nth-child(2) { animation-delay: 0.5s; }
+.repo-card:nth-child(3) { animation-delay: 1s; }
+.repo-card:nth-child(4) { animation-delay: 1.5s; }
+.repo-card:nth-child(5) { animation-delay: 2s; }
+.repo-card:nth-child(6) { animation-delay: 2.5s; }
+
+.repo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.repo-card:hover::before {
+    left: 100%;
+}
+
+.repo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.repo-name {
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.repo-name:hover {
+    color: #4facfe;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.repo-visibility {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    text-transform: capitalize;
+}
+
+.repo-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.repo-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.repo-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+}
+
+.repo-language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.language-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.repo-links {
+    display: flex;
+    gap: 15px;
+}
+
+.repo-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.repo-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.github-profile-link {
+    text-align: center;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.github-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.github-btn:hover::before {
+    left: 100%;
+}
+
+.github-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: #333;
+    color: white;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content {
+    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
         padding: 0 30px;
     }
     
@@ -749,7 +995,7 @@ body::after {
         gap: 25px;
     }
     
-    .series-grid {
+    .series-grid, .repos-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 25px;
     }
@@ -769,13 +1015,13 @@ body::after {
         height: 120px;
     }
     
-    .info-section, .qr-section, .youtube-series, .social-section, .timeline-section {
+    .info-section, .qr-section, .youtube-series, .social-section, .timeline-section, .github-section {
         padding: 60px 0;
     }
 }
 
 @media (max-width: 768px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content {
+    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
         padding: 0 20px;
     }
     
@@ -784,7 +1030,7 @@ body::after {
         gap: 20px;
     }
     
-    .series-grid {
+    .series-grid, .repos-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
@@ -804,48 +1050,28 @@ body::after {
         font-size: 1.8em;
     }
     
-    /* Timeline responsive */
-    .timeline::before {
-        left: 30px;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content-item,
-    .timeline-item:nth-child(even) .timeline-content-item {
-        left: 80px;
-        right: 0;
-        text-align: left;
-    }
-    
-    .timeline-marker {
-        left: 30px;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content-item::after {
-        left: -10px;
-        right: auto;
-        border: 10px solid transparent;
-        border-right: 10px solid rgba(255, 255, 255, 0.15);
-        border-left: none;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content-item::after {
-        left: -10px;
-        border: 10px solid transparent;
-        border-right: 10px solid rgba(255, 255, 255, 0.15);
-    }
-    
-    .qr-section h3, .youtube-series h3, .social-section h3, .timeline-section h3 {
+    .qr-section h3, .youtube-series h3, .social-section h3, .timeline-section h3, .github-section h3 {
         font-size: 1.5em;
         margin-bottom: 30px;
+    }
+    
+    .repo-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .repo-stats {
+        flex-wrap: wrap;
+        gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content {
+    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
         padding: 0 15px;
     }
     
-    .info-section, .qr-section, .youtube-series, .social-section, .timeline-section {
+    .info-section, .qr-section, .youtube-series, .social-section, .timeline-section, .github-section {
         padding: 40px 0;
     }
     
@@ -875,20 +1101,22 @@ body::after {
         height: 100px;
     }
     
-    /* Timeline mobile adjustments */
-    .timeline-marker {
-        width: 50px;
-        height: 50px;
-        font-size: 16px;
+    .repo-card {
+        padding: 20px;
     }
     
-    .timeline-content-item {
-        padding: 20px;
+    .repo-name {
+        font-size: 1.1em;
+    }
+    
+    .repos-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 
 @media (max-width: 320px) {
-    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content {
+    .content, .header-content, .qr-content, .youtube-content, .social-content, .timeline-content, .github-content {
         padding: 0 10px;
     }
     
@@ -899,20 +1127,21 @@ body::after {
     
     .social-btn {
         width: 200px;
+        font-size: 0.9em;
         padding: 12px 20px;
-        font-size: 1em;
     }
     
-    .qr-image {
-        width: 120px;
-        height: 120px;
+    .github-btn {
+        width: 200px;
+        font-size: 0.9em;
+        padding: 12px 20px;
     }
     
-    .name {
-        font-size: 1.3em;
+    .repo-card {
+        padding: 15px;
     }
     
-    .job-title {
-        font-size: 1em;
+    .timeline-card {
+        padding: 15px;
     }
 }
