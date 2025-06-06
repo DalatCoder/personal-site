@@ -8,9 +8,49 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Navigation Menu -->
+    <nav class="navigation" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span>NTH</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#header" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#info-section" class="nav-link">Thông tin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#qr-section" class="nav-link">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#timeline-section" class="nav-link">Quá trình</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#github-section" class="nav-link">Dự án</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#youtube-series" class="nav-link">YouTube</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#social-section" class="nav-link">Mạng xã hội</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- Header Section -->
-        <section class="header">
+        <section class="header" id="header">
             <div class="header-content">
                 <img src="assets/avatar.jpg" alt="Nguyễn Trọng Hiếu" class="avatar">
                 <h1 class="name">Nguyễn Trọng Hiếu</h1>
@@ -19,7 +59,7 @@
         </section>
         
         <!-- Personal Information Section -->
-        <section class="info-section">
+        <section class="info-section" id="info-section">
             <div class="content">
                 <div class="info-grid">
                     <div class="info-item">
@@ -58,7 +98,7 @@
         </section>
         
         <!-- QR Code Section -->
-        <section class="qr-section">
+        <section class="qr-section" id="qr-section">
             <div class="qr-content">
                 <div class="qr-header">
                     <h3>📱 Kết nối ngay qua Zalo</h3>
@@ -106,7 +146,7 @@
         </section>
         
         <!-- Timeline Section -->
-        <section class="timeline-section">
+        <section class="timeline-section" id="timeline-section">
             <div class="timeline-content">
                 <h3>🎓 Quá trình học tập và công tác</h3>
                 <div class="timeline-grid">
@@ -166,7 +206,7 @@
         </section>
         
         <!-- GitHub Repositories Section -->
-        <section class="github-section">
+        <section class="github-section" id="github-section">
             <div class="github-content">
                 <h3>💻 Dự án GitHub nổi bật</h3>
                 <div class="repos-loading">
@@ -186,7 +226,7 @@
         </section>
         
         <!-- YouTube Series Section -->
-        <section class="youtube-series">
+        <section class="youtube-series" id="youtube-series">
             <div class="youtube-content">
                 <h3>📚 Series Lập Trình</h3>
                 <div class="series-grid">
@@ -254,7 +294,7 @@
         </section>
         
         <!-- Social Media Section -->
-        <section class="social-section">
+        <section class="social-section" id="social-section">
             <div class="social-content">
                 <h3>Kết nối với tôi</h3>
                 <div class="social-links">
@@ -279,6 +319,11 @@
             <p>&copy; 2025 Nguyễn Trọng Hiếu. Được tạo với ❤️</p>
         </footer>
     </div>
+
+    <!-- Back to Top Button -->
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
     <!-- External JavaScript -->
     <script src="script.js"></script>
