@@ -441,3 +441,124 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial call to set correct active state
     updateNavigation();
 });
+
+// Initialize Simple Animations with Anime.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Simple fade-in animation for main elements
+    anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 800
+    })
+    .add({
+        targets: '.name',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        scale: [0.9, 1],
+        duration: 1000
+    })
+    .add({
+        targets: '.job-title',
+        opacity: [0, 1],
+        translateY: [15, 0],
+        duration: 600
+    }, '-=600')
+    .add({
+        targets: '.avatar',
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        rotate: [5, 0],
+        duration: 800
+    }, '-=800')
+    .add({
+        targets: '.info-item',
+        opacity: [0, 1],
+        translateX: [-30, 0],
+        delay: anime.stagger(100),
+        duration: 600
+    }, '-=400');
+
+    // Simple hover animations for cards
+    const cards = document.querySelectorAll('.repo-card, .series-card, .timeline-card, .info-item');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            anime({
+                targets: this,
+                translateY: -5,
+                scale: 1.02,
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            anime({
+                targets: this,
+                translateY: 0,
+                scale: 1,
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        });
+    });
+
+    // Simple pulse animation for social buttons
+    anime({
+        targets: '.social-btn, .qr-btn',
+        scale: [1, 1.05, 1],
+        duration: 2000,
+        loop: true,
+        direction: 'alternate',
+        easing: 'easeInOutSine',
+        delay: anime.stagger(200)
+    });
+
+    // Smooth scroll reveal animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                anime({
+                    targets: entry.target,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    easing: 'easeOutQuad'
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections for scroll animations
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        observer.observe(section);
+    });
+
+    // Simple text typing effect for name (optional)
+    function typewriterEffect() {
+        const nameElement = document.querySelector('.name');
+        if (nameElement) {
+            const originalText = nameElement.textContent;
+            nameElement.textContent = '';
+            nameElement.style.opacity = '1';
+            
+            let i = 0;
+            const timer = setInterval(() => {
+                nameElement.textContent += originalText.charAt(i);
+                i++;
+                if (i >= originalText.length) {
+                    clearInterval(timer);
+                }
+            }, 100);
+        }
+    }
+
+    // Uncomment to enable typewriter effect
+    // setTimeout(typewriterEffect, 500);
+});

@@ -1000,6 +1000,7 @@ body::after {
     margin-bottom: 40px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 .social-links {
@@ -1424,6 +1425,34 @@ body::after {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     background: #333;
     color: white;
+}
+
+/* Simple Animation Support */
+.name, .job-title, .avatar, .info-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.name.animated, .job-title.animated, .avatar.animated, .info-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth transitions for interactive elements */
+.repo-card, .series-card, .timeline-card, .info-item,
+.social-btn, .qr-btn, .nav-link {
+    transition: all 0.3s ease;
+    will-change: transform;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Responsive Design */
