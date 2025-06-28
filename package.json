@@ -1,53 +1,25 @@
 {
   "name": "nguyentronghieu-website",
-  "version": "1.0.0",
-  "description": "Personal website of Nguyễn Trọng Hiếu with modern build system",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Personal website of Nguyễn Trọng Hiếu built with Tailwind CSS",
+  "main": "index.html",
   "scripts": {
-    "build": "node build.js",
-    "build:css": "node build.js --css-only",
-    "build:js": "node build.js --js-only",
-    "dev": "node build.js --dev",
-    "clean": "rm -rf dist",
-    "watch": "node build.js --watch",
-    "serve": "node -e \"const http = require('http'); const fs = require('fs'); const path = require('path'); const server = http.createServer((req, res) => { let filePath = path.join(__dirname, 'dist', req.url === '/' ? 'index.html' : req.url); if (!fs.existsSync(filePath)) filePath = path.join(__dirname, 'dist', 'index.html'); const ext = path.extname(filePath); const contentType = ext === '.css' ? 'text/css' : ext === '.js' ? 'application/javascript' : ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : ext === '.png' ? 'image/png' : 'text/html'; fs.readFile(filePath, (err, data) => { if (err) { res.writeHead(404); res.end('404 Not Found'); return; } res.writeHead(200, { 'Content-Type': contentType }); res.end(data); }); }); server.listen(3000, () => console.log('Server running at http://localhost:3000')); \"",
-    "postinstall": "echo 'Dependencies installed successfully!'"
+    "start": "npx http-server . -p 3000 -o",
+    "serve": "npx http-server . -p 3000 -o"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
-    "@babel/preset-env": "^7.23.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "cssnano": "^6.0.1",
-    "terser": "^5.24.0"
+    "http-server": "^14.1.1"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "IE >= 10",
-    "Chrome >= 30",
-    "Firefox >= 30",
-    "Safari >= 8",
-    "iOS >= 8",
-    "Android >= 4.4"
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "tailwind-css",
+    "responsive-design"
   ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "ie": "10",
-            "chrome": "30",
-            "firefox": "30",
-            "safari": "8"
-          },
-          "useBuiltIns": "usage",
-          "corejs": 3
-        }
-      ]
-    ]
-  },
-  "author": "Nguyễn Trọng Hiếu",
-  "license": "MIT"
+  "author": "Nguyễn Trọng Hiếu <hieu.ngxtr@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DalatCoder/personal-site"
+  }
 }

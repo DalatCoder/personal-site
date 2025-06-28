@@ -1,83 +1,102 @@
 // Language colors mapping
 const languageColors = {
-    'JavaScript': '#f1e05a',
-    'TypeScript': '#2b7489',
-    'Python': '#3572A5',
-    'Java': '#b07219',
-    'C#': '#239120',
-    'C++': '#f34b7d',
-    'C': '#555555',
-    'PHP': '#4F5D95',
-    'HTML': '#e34c26',
-    'CSS': '#563d7c',
-    'Vue': '#4FC08D',
-    'React': '#61DAFB',
-    'Angular': '#DD0031',
-    'Node.js': '#339933',
-    'Go': '#00ADD8',
-    'Rust': '#dea584',
-    'Swift': '#fa7343',
-    'Kotlin': '#F18E33',
-    'Dart': '#00B4AB',
-    'Shell': '#89e051',
-    'PowerShell': '#012456',
-    'Dockerfile': '#384d54'
+  JavaScript: "#f1e05a",
+  TypeScript: "#2b7489",
+  Python: "#3572A5",
+  Java: "#b07219",
+  "C#": "#239120",
+  "C++": "#f34b7d",
+  C: "#555555",
+  PHP: "#4F5D95",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  Vue: "#4FC08D",
+  React: "#61DAFB",
+  Angular: "#DD0031",
+  "Node.js": "#339933",
+  Go: "#00ADD8",
+  Rust: "#dea584",
+  Swift: "#fa7343",
+  Kotlin: "#F18E33",
+  Dart: "#00B4AB",
+  Shell: "#89e051",
+  PowerShell: "#012456",
+  Dockerfile: "#384d54",
 };
 
 // Function to get language color
 function getLanguageColor(language) {
-    return languageColors[language] || '#6e7681';
+  return languageColors[language] || "#6e7681";
 }
 
 // Function to format number (1000 -> 1k)
 function formatNumber(num) {
-    if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'k';
-    }
-    return num.toString();
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + "k";
+  }
+  return num.toString();
 }
 
-// Function to create repository card
+// Function to create repository card with Tailwind CSS
 function createRepoCard(repo) {
-    const description = repo.description || 'Không có mô tả';
-    const language = repo.language || 'Unknown';
-    const stars = repo.stargazers_count || 0;
-    const forks = repo.forks_count || 0;
-    const isPublic = !repo.private;
+  const description = repo.description || "Không có mô tả";
+  const language = repo.language || "Unknown";
+  const stars = repo.stargazers_count || 0;
+  const forks = repo.forks_count || 0;
+  const isPublic = !repo.private;
 
-    return `
-        <div class="repo-card">
-            <div class="repo-header">
-                <a href="${repo.html_url}" target="_blank" class="repo-name">
+  return `
+        <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+            <div class="flex items-center justify-between mb-4">
+                <a href="${
+                  repo.html_url
+                }" target="_blank" class="flex items-center space-x-2 text-white hover:text-primary-300 transition-colors group-hover:text-primary-300">
                     <i class="fas fa-book"></i>
-                    ${repo.name}
+                    <span class="font-semibold truncate">${repo.name}</span>
                 </a>
-                <span class="repo-visibility">${isPublic ? 'Public' : 'Private'}</span>
+                <span class="px-2 py-1 text-xs font-medium rounded-full ${
+                  isPublic
+                    ? "bg-green-500/20 text-green-300"
+                    : "bg-yellow-500/20 text-yellow-300"
+                }">${isPublic ? "Public" : "Private"}</span>
             </div>
-            <div class="repo-description">${description}</div>
-            <div class="repo-stats">
-                <div class="repo-stat">
-                    <i class="fas fa-star"></i>
-                    ${formatNumber(stars)}
+            
+            <p class="text-white/70 text-sm mb-4 line-clamp-2">${description}</p>
+            
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-4 text-sm text-white/60">
+                    <div class="flex items-center space-x-1">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span>${formatNumber(stars)}</span>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <i class="fas fa-code-branch text-blue-400"></i>
+                        <span>${formatNumber(forks)}</span>
+                    </div>
                 </div>
-                <div class="repo-stat">
-                    <i class="fas fa-code-branch"></i>
-                    ${formatNumber(forks)}
-                </div>
-                <div class="repo-language">
-                    <span class="language-color" style="background-color: ${getLanguageColor(language)}"></span>
-                    ${language}
+                <div class="flex items-center space-x-2 text-sm">
+                    <div class="w-3 h-3 rounded-full" style="background-color: ${getLanguageColor(
+                      language
+                    )}"></div>
+                    <span class="text-white/70">${language}</span>
                 </div>
             </div>
-            <div class="repo-links">
-                <a href="${repo.html_url}" target="_blank" class="repo-link">
+            
+            <div class="flex space-x-2">
+                <a href="${
+                  repo.html_url
+                }" target="_blank" class="flex-1 px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
                     <i class="fas fa-eye"></i>
-                    Xem
+                    <span>Xem</span>
                 </a>
-                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="repo-link">
+                ${
+                  repo.homepage
+                    ? `<a href="${repo.homepage}" target="_blank" class="flex-1 px-3 py-2 glass hover:bg-white/10 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
                     <i class="fas fa-external-link-alt"></i>
-                    Demo
-                </a>` : ''}
+                    <span>Demo</span>
+                </a>`
+                    : ""
+                }
             </div>
         </div>
     `;
@@ -85,480 +104,385 @@ function createRepoCard(repo) {
 
 // Function to load GitHub repositories
 async function loadGitHubRepos() {
-    try {
-        const response = await fetch('https://api.github.com/users/DalatCoder/repos?sort=updated&per_page=6');
-        const repos = await response.json();
+  try {
+    const response = await fetch(
+      "https://api.github.com/users/DalatCoder/repos?sort=updated&per_page=6"
+    );
+    const repos = await response.json();
 
-        if (response.ok) {
-            const reposGrid = document.getElementById('reposGrid');
-            const loadingDiv = document.querySelector('.repos-loading');
+    if (response.ok) {
+      const reposGrid = document.getElementById("reposGrid");
+      const loadingDiv = document.getElementById("reposLoading");
 
-            // Filter out forked repositories and get the most relevant ones
-            const filteredRepos = repos
-                .filter(repo => !repo.fork)
-                .sort((a, b) => {
-                    // Sort by stars first, then by updated date
-                    if (b.stargazers_count !== a.stargazers_count) {
-                        return b.stargazers_count - a.stargazers_count;
-                    }
-                    return new Date(b.updated_at) - new Date(a.updated_at);
-                })
-                .slice(0, 6);
+      // Filter out forked repositories and get the most relevant ones
+      const filteredRepos = repos
+        .filter((repo) => !repo.fork)
+        .sort((a, b) => {
+          // Sort by stars first, then by updated date
+          if (b.stargazers_count !== a.stargazers_count) {
+            return b.stargazers_count - a.stargazers_count;
+          }
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        })
+        .slice(0, 6);
 
-            // Generate HTML for repositories
-            reposGrid.innerHTML = filteredRepos.map(repo => createRepoCard(repo)).join('');
+      // Generate HTML for repositories
+      reposGrid.innerHTML = filteredRepos
+        .map((repo) => createRepoCard(repo))
+        .join("");
 
-            // Hide loading and show repos
-            loadingDiv.style.display = 'none';
-            reposGrid.style.display = 'grid';
-        } else {
-            throw new Error('Failed to fetch repositories');
-        }
-    } catch (error) {
-        console.error('Error loading GitHub repositories:', error);
-        const loadingDiv = document.querySelector('.repos-loading');
-        loadingDiv.innerHTML = `
-            <i class="fas fa-exclamation-triangle"></i>
-            <p>Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
-        `;
+      // Hide loading and show repos
+      loadingDiv.style.display = "none";
+      reposGrid.classList.remove("hidden");
+    } else {
+      throw new Error("Failed to fetch repositories");
     }
+  } catch (error) {
+    console.error("Error loading GitHub repositories:", error);
+    const loadingDiv = document.getElementById("reposLoading");
+    loadingDiv.innerHTML = `
+            <div class="flex items-center justify-center space-x-3">
+                <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                <p class="text-white/80">Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
+            </div>
+        `;
+  }
 }
 
 // Load repositories when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Delay loading slightly to improve page load performance
-    setTimeout(loadGitHubRepos, 1000);
+document.addEventListener("DOMContentLoaded", function () {
+  // Delay loading slightly to improve page load performance
+  setTimeout(loadGitHubRepos, 1000);
 });
 
 // QR Code Action Functions
 function downloadQR() {
-    const link = document.createElement('a');
-    link.href = 'assets/QR.jpg';
-    link.download = 'Zalo-QR-NguyenTrongHieu.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show success feedback
-    showNotification('📥 Đã tải xuống mã QR thành công!', 'success');
+  const link = document.createElement("a");
+  link.href = "assets/QR.jpg";
+  link.download = "Zalo-QR-NguyenTrongHieu.jpg";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success feedback
+  showNotification("📥 Đã tải xuống mã QR thành công!", "success");
 }
 
 function shareQR() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Kết nối với Nguyễn Trọng Hiếu qua Zalo',
-            text: 'Quét mã QR này để chat với tôi trên Zalo',
-            url: window.location.href
-        }).then(() => {
-            showNotification('📤 Đã chia sẻ thành công!', 'success');
-        }).catch((error) => {
-            console.log('Error sharing:', error);
-            copyLink(); // Fallback to copy link
-        });
-    } else {
-        // Fallback for browsers that don't support Web Share API
-        copyLink();
-    }
+  if (navigator.share) {
+    navigator
+      .share({
+        title: "Kết nối với Nguyễn Trọng Hiếu qua Zalo",
+        text: "Quét mã QR này để chat với tôi trên Zalo",
+        url: window.location.href,
+      })
+      .then(() => {
+        showNotification("📤 Đã chia sẻ thành công!", "success");
+      })
+      .catch((error) => {
+        console.log("Error sharing:", error);
+        copyLink(); // Fallback to copy link
+      });
+  } else {
+    // Fallback for browsers that don't support Web Share API
+    copyLink();
+  }
 }
 
 function copyLink() {
-    const textToCopy = window.location.href;
-    
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            showNotification('🔗 Đã sao chép link website!', 'success');
-        }).catch(() => {
-            fallbackCopyTextToClipboard(textToCopy);
-        });
-    } else {
+  const textToCopy = window.location.href;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        showNotification("🔗 Đã sao chép link website!", "success");
+      })
+      .catch(() => {
         fallbackCopyTextToClipboard(textToCopy);
-    }
+      });
+  } else {
+    fallbackCopyTextToClipboard(textToCopy);
+  }
 }
 
 function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.position = "fixed";
-    textArea.style.opacity = "0";
-    
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        const successful = document.execCommand('copy');
-        if (successful) {
-            showNotification('🔗 Đã sao chép link website!', 'success');
-        } else {
-            showNotification('❌ Không thể sao chép. Vui lòng sao chép thủ công.', 'error');
-        }
-    } catch (err) {
-        showNotification('❌ Không thể sao chép. Vui lòng sao chép thủ công.', 'error');
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+  textArea.style.opacity = "0";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    const successful = document.execCommand("copy");
+    if (successful) {
+      showNotification("🔗 Đã sao chép link website!", "success");
+    } else {
+      showNotification(
+        "❌ Không thể sao chép. Vui lòng sao chép thủ công.",
+        "error"
+      );
     }
-    
-    document.body.removeChild(textArea);
+  } catch (err) {
+    showNotification(
+      "❌ Không thể sao chép. Vui lòng sao chép thủ công.",
+      "error"
+    );
+  }
+
+  document.body.removeChild(textArea);
 }
 
-function showNotification(message, type = 'info') {
-    // Remove existing notification if any
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
+function showNotification(message, type = "info") {
+  // Remove existing notification if any
+  const existingNotification = document.querySelector(".notification");
+  if (existingNotification) {
+    existingNotification.remove();
+  }
 
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
-                <i class="fas fa-times"></i>
+  // Create notification element
+  const notification = document.createElement("div");
+  notification.className = `notification fixed top-4 right-4 max-w-sm glass rounded-xl p-4 shadow-2xl z-50 transition-all duration-300 transform translate-x-full`;
+
+  const borderColor =
+    type === "success"
+      ? "border-l-4 border-green-400"
+      : type === "error"
+      ? "border-l-4 border-red-400"
+      : "border-l-4 border-blue-400";
+
+  notification.className += ` ${borderColor}`;
+
+  notification.innerHTML = `
+        <div class="flex items-center justify-between space-x-3">
+            <span class="text-white font-medium text-sm flex-1">${message}</span>
+            <button class="text-white/60 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10" onclick="this.parentElement.parentElement.remove()">
+                <i class="fas fa-times text-sm"></i>
             </button>
         </div>
     `;
 
-    // Add styles if not already present
-    if (!document.querySelector('#notification-styles')) {
-        const styles = document.createElement('style');
-        styles.id = 'notification-styles';
-        styles.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                border-radius: 15px;
-                padding: 15px 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-                animation: slideInFromRight 0.3s ease-out;
-                max-width: 350px;
-                min-width: 300px;
-            }
-            
-            .notification-success {
-                border-left: 4px solid #4CAF50;
-            }
-            
-            .notification-error {
-                border-left: 4px solid #f44336;
-            }
-            
-            .notification-content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 15px;
-            }
-            
-            .notification-message {
-                color: #333;
-                font-weight: 500;
-                font-size: 0.9em;
-                flex: 1;
-            }
-            
-            .notification-close {
-                background: none;
-                border: none;
-                color: #666;
-                cursor: pointer;
-                padding: 5px;
-                border-radius: 50%;
-                width: 25px;
-                height: 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.2s ease;
-            }
-            
-            .notification-close:hover {
-                background: rgba(0, 0, 0, 0.1);
-                color: #333;
-            }
-            
-            @keyframes slideInFromRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                .notification {
-                    top: 10px;
-                    right: 10px;
-                    left: 10px;
-                    max-width: none;
-                    min-width: auto;
-                }
-            }
-        `;
-        document.head.appendChild(styles);
-    }
+  // Add to page
+  document.body.appendChild(notification);
 
-    // Add to page
-    document.body.appendChild(notification);
+  // Animate in
+  setTimeout(() => {
+    notification.classList.remove("translate-x-full");
+  }, 10);
 
-    // Auto remove after 4 seconds
-    setTimeout(() => {
+  // Auto remove after 4 seconds
+  setTimeout(() => {
+    if (notification.parentElement) {
+      notification.classList.add("translate-x-full");
+      setTimeout(() => {
         if (notification.parentElement) {
-            notification.style.animation = 'slideInFromRight 0.3s ease-out reverse';
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 300);
+          notification.remove();
         }
-    }, 4000);
+      }, 300);
+    }
+  }, 4000);
 }
 
 // Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get navigation elements
-    const nav = document.getElementById('mainNav');
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
+document.addEventListener("DOMContentLoaded", function () {
+  // Get navigation elements
+  const nav = document.getElementById("mainNav");
+  const navToggle = document.getElementById("navToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const scrollProgress = document.getElementById("scrollProgress");
+  const backToTopBtn = document.getElementById("backToTop");
 
-    // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
+  // Mobile menu toggle
+  navToggle.addEventListener("click", function () {
+    const spans = navToggle.querySelectorAll("span");
+    mobileMenu.classList.toggle("hidden");
+
+    // Animate hamburger menu
+    if (mobileMenu.classList.contains("hidden")) {
+      spans[0].style.transform = "none";
+      spans[1].style.opacity = "1";
+      spans[2].style.transform = "none";
+    } else {
+      spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+      spans[1].style.opacity = "0";
+      spans[2].style.transform = "rotate(-45deg) translate(7px, -6px)";
+    }
+  });
+
+  // Close mobile menu when clicking on links
+  const mobileLinks = mobileMenu.querySelectorAll("a");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+      const spans = navToggle.querySelectorAll("span");
+      spans[0].style.transform = "none";
+      spans[1].style.opacity = "1";
+      spans[2].style.transform = "none";
     });
+  });
 
-    // Close mobile menu when clicking on links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
+  // Smooth scrolling for all navigation links
+  [...navLinks, ...mobileLinks].forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 80; // Account for fixed nav height
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
         });
+      }
     });
+  });
 
-    // Smooth scrolling and active link management
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed nav height
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
+  // Back to top button functionality
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
+  }
 
-    // Back to top button functionality
-    const backToTopBtn = document.getElementById('backToTop');
+  // Handle scroll events
+  let ticking = false;
+
+  function updateNavigation() {
+    const scrollY = window.scrollY;
+    const documentHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollY / documentHeight) * 100;
+
+    // Update scroll progress indicator
+    if (scrollProgress) {
+      scrollProgress.style.width = `${Math.min(scrollPercent, 100)}%`;
+    }
+
+    // Show/hide back to top button
     if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+      if (scrollY > 300) {
+        backToTopBtn.classList.remove("opacity-0", "invisible");
+        backToTopBtn.classList.add("opacity-100", "visible");
+      } else {
+        backToTopBtn.classList.add("opacity-0", "invisible");
+        backToTopBtn.classList.remove("opacity-100", "visible");
+      }
     }
 
-    // Handle scroll events for navigation styling and active links
-    let ticking = false;
-    const scrollProgress = document.getElementById('scrollProgress');
-    
-    function updateNavigation() {
-        const scrollY = window.scrollY;
-        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollY / documentHeight) * 100;
-        
-        // Update scroll progress indicator
-        if (scrollProgress) {
-            scrollProgress.style.width = `${Math.min(scrollPercent, 100)}%`;
-        }
-        
-        // Show/hide back to top button
-        if (backToTopBtn) {
-            if (scrollY > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        }
-        
-        // Add scrolled class to navigation
-        if (scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-
-        // Update active navigation link
-        const sections = document.querySelectorAll('section[id]');
-        let currentActive = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                currentActive = sectionId;
-            }
-        });
-
-        // Update active link
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentActive}`) {
-                link.classList.add('active');
-            }
-        });
-
-        ticking = false;
+    // Add scrolled class to navigation
+    if (scrollY > 50) {
+      nav.classList.add("bg-black/50");
+      nav.classList.remove("bg-black/20");
+    } else {
+      nav.classList.remove("bg-black/50");
+      nav.classList.add("bg-black/20");
     }
 
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateNavigation);
-            ticking = true;
-        }
-    }
+    // Update active navigation link
+    const sections = document.querySelectorAll("section[id]");
+    let currentActive = "";
 
-    window.addEventListener('scroll', requestTick);
-    
-    // Initial call to set correct active state
-    updateNavigation();
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentActive = sectionId;
+      }
+    });
+
+    // Update active link
+    navLinks.forEach((link) => {
+      const underline = link.querySelector("span");
+      if (link.getAttribute("href") === `#${currentActive}`) {
+        if (underline) underline.style.width = "100%";
+      } else {
+        if (underline) underline.style.width = "0%";
+      }
+    });
+
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateNavigation);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", requestTick);
+
+  // Initial call to set correct active state
+  updateNavigation();
 });
 
-// Initialize Simple Animations with Anime.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Simple fade-in animation for main elements
-    anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 800
-    })
-    .add({
-        targets: '.name',
-        opacity: [0, 1],
-        translateY: [20, 0],
-        scale: [0.9, 1],
-        duration: 1000
-    })
-    .add({
-        targets: '.job-title',
-        opacity: [0, 1],
-        translateY: [15, 0],
-        duration: 600
-    }, '-=600')
-    .add({
-        targets: '.avatar',
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        rotate: [5, 0],
-        duration: 800
-    }, '-=800')
-    .add({
-        targets: '.info-item',
-        opacity: [0, 1],
-        translateX: [-30, 0],
-        delay: anime.stagger(100),
-        duration: 600
-    }, '-=400');
+// Initialize Simple Animations with modern approach
+document.addEventListener("DOMContentLoaded", function () {
+  // Simple fade-in animation for main elements
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
 
-    // Simple hover animations for cards
-    const cards = document.querySelectorAll('.repo-card, .series-card, .timeline-card, .info-item');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            anime({
-                targets: this,
-                translateY: -5,
-                scale: 1.02,
-                duration: 300,
-                easing: 'easeOutQuad'
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            anime({
-                targets: this,
-                translateY: 0,
-                scale: 1,
-                duration: 300,
-                easing: 'easeOutQuad'
-            });
-        });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in");
+        observer.unobserve(entry.target);
+      }
     });
+  }, observerOptions);
 
-    // Simple pulse animation for social buttons
-    anime({
-        targets: '.social-btn, .qr-btn',
-        scale: [1, 1.05, 1],
-        duration: 2000,
-        loop: true,
-        direction: 'alternate',
-        easing: 'easeInOutSine',
-        delay: anime.stagger(200)
-    });
+  // Observe sections for scroll animations
+  document.querySelectorAll("section").forEach((section, index) => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(30px)";
+    section.style.transition = "all 0.6s ease-out";
+    section.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(section);
+  });
 
-    // Smooth scroll reveal animation
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                anime({
-                    targets: entry.target,
-                    opacity: [0, 1],
-                    translateY: [30, 0],
-                    duration: 800,
-                    easing: 'easeOutQuad'
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe sections for scroll animations
-    document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        observer.observe(section);
-    });
-
-    // Simple text typing effect for name (optional)
-    function typewriterEffect() {
-        const nameElement = document.querySelector('.name');
-        if (nameElement) {
-            const originalText = nameElement.textContent;
-            nameElement.textContent = '';
-            nameElement.style.opacity = '1';
-            
-            let i = 0;
-            const timer = setInterval(() => {
-                nameElement.textContent += originalText.charAt(i);
-                i++;
-                if (i >= originalText.length) {
-                    clearInterval(timer);
-                }
-            }, 100);
-        }
+  // Add animation classes dynamically
+  const style = document.createElement("style");
+  style.textContent = `
+    .animate-fade-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
+    
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  `;
+  document.head.appendChild(style);
 
-    // Uncomment to enable typewriter effect
-    // setTimeout(typewriterEffect, 500);
+  // Enhanced hover effects for cards
+  const cards = document.querySelectorAll(".glass");
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-8px) scale(1.02)";
+      this.style.boxShadow = "0 25px 50px rgba(0, 0, 0, 0.4)";
+    });
+
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) scale(1)";
+      this.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.2)";
+    });
+  });
 });
