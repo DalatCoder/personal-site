@@ -46,11 +46,11 @@ function createRepoCard(repo) {
   const isPublic = !repo.private;
 
   return `
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
             <div class="flex items-center justify-between mb-4">
                 <a href="${
                   repo.html_url
-                }" target="_blank" class="flex items-center space-x-2 text-black hover:text-gray-600 transition-colors">
+                }" target="_blank" class="flex items-center space-x-2 text-gray-900 hover:text-blue-600 transition-colors">
                     <i class="fas fa-book"></i>
                     <span class="font-semibold truncate">${repo.name}</span>
                 </a>
@@ -85,13 +85,13 @@ function createRepoCard(repo) {
             <div class="flex space-x-2">
                 <a href="${
                   repo.html_url
-                }" target="_blank" class="flex-1 px-3 py-2 bg-black hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
+                }" target="_blank" class="flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1 shadow-md hover:shadow-lg">
                     <i class="fas fa-eye"></i>
                     <span>Xem</span>
                 </a>
                 ${
                   repo.homepage
-                    ? `<a href="${repo.homepage}" target="_blank" class="flex-1 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-black text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
+                    ? `<a href="${repo.homepage}" target="_blank" class="flex-1 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
                     <i class="fas fa-external-link-alt"></i>
                     <span>Demo</span>
                 </a>`
@@ -143,7 +143,7 @@ async function loadGitHubRepos() {
     loadingDiv.innerHTML = `
             <div class="flex items-center justify-center space-x-3">
                 <i class="fas fa-exclamation-triangle text-yellow-500"></i>
-                <p class="text-gray-600">Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
+                <p class="text-blue-700">Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
             </div>
         `;
   }
@@ -247,7 +247,7 @@ function showNotification(message, type = "info") {
 
   // Create notification element
   const notification = document.createElement("div");
-  notification.className = `notification fixed top-4 right-4 max-w-sm bg-white rounded-xl p-4 shadow-lg border border-gray-200 z-50 transition-all duration-300 transform translate-x-full`;
+  notification.className = `notification fixed top-4 right-4 max-w-sm bg-white rounded-xl p-4 shadow-lg border border-blue-200 z-50 transition-all duration-300 transform translate-x-full`;
 
   const borderColor =
     type === "success"
@@ -260,8 +260,8 @@ function showNotification(message, type = "info") {
 
   notification.innerHTML = `
         <div class="flex items-center justify-between space-x-3">
-            <span class="text-black font-medium text-sm flex-1">${message}</span>
-            <button class="text-gray-400 hover:text-black transition-colors p-1 rounded-full hover:bg-gray-100" onclick="this.parentElement.parentElement.remove()">
+            <span class="text-gray-900 font-medium text-sm flex-1">${message}</span>
+            <button class="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-blue-50" onclick="this.parentElement.parentElement.remove()">
                 <i class="fas fa-times text-sm"></i>
             </button>
         </div>
@@ -382,11 +382,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add scrolled class to navigation
     if (scrollY > 50) {
-      nav.classList.add("bg-white/95");
-      nav.classList.remove("bg-white/90");
-    } else {
+      nav.classList.add("bg-white/98");
       nav.classList.remove("bg-white/95");
-      nav.classList.add("bg-white/90");
+    } else {
+      nav.classList.remove("bg-white/98");
+      nav.classList.add("bg-white/95");
     }
 
     // Update active navigation link
