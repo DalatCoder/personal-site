@@ -9,131 +9,23 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                50: "#f0f9ff",
-                100: "#e0f2fe",
-                200: "#bae6fd",
-                300: "#7dd3fc",
-                400: "#38bdf8",
-                500: "#0ea5e9",
-                600: "#0284c7",
-                700: "#0369a1",
-                800: "#075985",
-                900: "#0c4a6e",
-              },
-              secondary: {
-                50: "#fdf4ff",
-                100: "#fae8ff",
-                200: "#f5d0fe",
-                300: "#f0abfc",
-                400: "#e879f9",
-                500: "#d946ef",
-                600: "#c026d3",
-                700: "#a21caf",
-                800: "#86198f",
-                900: "#701a75",
-              },
-              accent: {
-                50: "#f0fdf4",
-                100: "#dcfce7",
-                200: "#bbf7d0",
-                300: "#86efac",
-                400: "#4ade80",
-                500: "#22c55e",
-                600: "#16a34a",
-                700: "#15803d",
-                800: "#166534",
-                900: "#14532d",
-              },
-            },
-            animation: {
-              gradient: "gradient 8s ease infinite",
-              float: "float 6s ease-in-out infinite",
-              glow: "glow 2s ease-in-out infinite alternate",
-            },
-            keyframes: {
-              gradient: {
-                "0%, 100%": {
-                  "background-size": "200% 200%",
-                  "background-position": "left center",
-                },
-                "50%": {
-                  "background-size": "200% 200%",
-                  "background-position": "right center",
-                },
-              },
-              float: {
-                "0%, 100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-20px)" },
-              },
-              glow: {
-                from: { "box-shadow": "0 0 20px #3b82f6" },
-                to: { "box-shadow": "0 0 30px #3b82f6, 0 0 40px #3b82f6" },
-              },
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <style>
-      .bg-gradient-animated {
-        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-      }
-
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .glass {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .glass-dark {
-        background: rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-    </style>
   </head>
-  <body
-    class="bg-gradient-animated min-h-screen font-sans text-white overflow-x-hidden"
-  >
+  <body class="bg-white min-h-screen font-sans text-black overflow-x-hidden">
     <!-- Scroll Progress Indicator -->
     <div
-      class="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 z-50 transition-all duration-300"
+      class="fixed top-0 left-0 h-1 bg-gray-800 z-50 transition-all duration-300"
       id="scrollProgress"
     ></div>
 
     <!-- Navigation Menu -->
     <nav
-      class="fixed top-0 left-0 right-0 z-40 glass-dark transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-sm border-b border-gray-200 transition-all duration-300"
       id="mainNav"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-          <div class="text-2xl font-bold text-white">
-            <span
-              class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent"
-              >NTH</span
-            >
+          <div class="text-2xl font-bold text-black">
+            <span class="text-black">NTH</span>
           </div>
 
           <!-- Desktop Menu -->
@@ -142,77 +34,77 @@
               <li>
                 <a
                   href="#header"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Trang chủ
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#info-section"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Thông tin
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#qr-section"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Liên hệ
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#timeline-section"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Quá trình
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#github-section"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Dự án
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#youtube-series"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   YouTube
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#social-section"
-                  class="nav-link text-white hover:text-primary-300 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 hover:text-black transition-colors duration-300 relative group"
                 >
                   Mạng xã hội
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
@@ -226,13 +118,13 @@
               id="navToggle"
             >
               <span
-                class="block w-5 h-0.5 bg-white transition-transform duration-300"
+                class="block w-5 h-0.5 bg-black transition-transform duration-300"
               ></span>
               <span
-                class="block w-5 h-0.5 bg-white transition-opacity duration-300"
+                class="block w-5 h-0.5 bg-black transition-opacity duration-300"
               ></span>
               <span
-                class="block w-5 h-0.5 bg-white transition-transform duration-300"
+                class="block w-5 h-0.5 bg-black transition-transform duration-300"
               ></span>
             </button>
           </div>
@@ -240,40 +132,42 @@
 
         <!-- Mobile Menu -->
         <div class="md:hidden hidden" id="mobileMenu">
-          <div class="px-2 pt-2 pb-3 space-y-1 glass rounded-lg mt-2">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 bg-white border border-gray-200 rounded-lg mt-2"
+          >
             <a
               href="#header"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Trang chủ</a
             >
             <a
               href="#info-section"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Thông tin</a
             >
             <a
               href="#qr-section"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Liên hệ</a
             >
             <a
               href="#timeline-section"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Quá trình</a
             >
             <a
               href="#github-section"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Dự án</a
             >
             <a
               href="#youtube-series"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >YouTube</a
             >
             <a
               href="#social-section"
-              class="block px-3 py-2 text-white hover:text-primary-300 transition-colors"
+              class="block px-3 py-2 text-gray-700 hover:text-black transition-colors"
               >Mạng xã hội</a
             >
           </div>
@@ -283,27 +177,22 @@
 
     <div class="min-h-screen pt-16">
       <!-- Header Section -->
-      <section class="relative py-20 lg:py-32 overflow-hidden" id="header">
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-secondary-600/20"
-        ></div>
+      <section class="relative py-20 lg:py-32" id="header">
         <div
           class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <div class="animate-float">
+          <div>
             <img
               src="assets/avatar.jpg"
               alt="Nguyễn Trọng Hiếu"
-              class="w-32 h-32 lg:w-40 lg:h-40 rounded-full mx-auto mb-6 border-4 border-white/30 object-cover shadow-2xl hover:scale-110 transition-transform duration-300 animate-glow"
+              class="w-32 h-32 lg:w-40 lg:h-40 rounded-full mx-auto mb-6 border-2 border-gray-300 object-cover shadow-lg"
             />
           </div>
-          <h1
-            class="text-3xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-primary-200 bg-clip-text text-transparent"
-          >
+          <h1 class="text-3xl lg:text-5xl font-bold mb-4 text-black">
             Nguyễn Trọng Hiếu
           </h1>
           <p
-            class="text-lg lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed"
+            class="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             Trợ giảng tại Khoa Công nghệ Thông tin<br />
             Trường Đại học Đà Lạt
@@ -312,45 +201,45 @@
       </section>
 
       <!-- Personal Information Section -->
-      <section class="py-20 relative" id="info-section">
+      <section class="py-20 relative bg-gray-50" id="info-section">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center space-x-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-birthday-cake text-white text-lg"></i>
+                  <i class="fas fa-birthday-cake text-gray-600 text-lg"></i>
                 </div>
                 <div>
                   <div
-                    class="text-sm text-white/70 uppercase tracking-wider font-medium"
+                    class="text-sm text-gray-500 uppercase tracking-wider font-medium"
                   >
                     Ngày sinh
                   </div>
-                  <div class="text-lg font-semibold text-white">11/03/2000</div>
+                  <div class="text-lg font-semibold text-black">11/03/2000</div>
                 </div>
               </div>
             </div>
 
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center space-x-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-briefcase text-white text-lg"></i>
+                  <i class="fas fa-briefcase text-gray-600 text-lg"></i>
                 </div>
                 <div>
                   <div
-                    class="text-sm text-white/70 uppercase tracking-wider font-medium"
+                    class="text-sm text-gray-500 uppercase tracking-wider font-medium"
                   >
                     Công việc hiện tại
                   </div>
-                  <div class="text-lg font-semibold text-white">
+                  <div class="text-lg font-semibold text-black">
                     Trợ giảng tại Khoa CNTT, ĐH Đà Lạt
                   </div>
                 </div>
@@ -358,24 +247,24 @@
             </div>
 
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center space-x-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-envelope text-white text-lg"></i>
+                  <i class="fas fa-envelope text-gray-600 text-lg"></i>
                 </div>
                 <div>
                   <div
-                    class="text-sm text-white/70 uppercase tracking-wider font-medium"
+                    class="text-sm text-gray-500 uppercase tracking-wider font-medium"
                   >
                     Email
                   </div>
                   <div class="text-lg font-semibold">
                     <a
                       href="mailto:hieu.ngxtr@gmail.com"
-                      class="text-white hover:text-primary-300 transition-colors"
+                      class="text-black hover:text-gray-600 transition-colors"
                     >
                       hieu.ngxtr@gmail.com
                     </a>
@@ -391,9 +280,7 @@
       <section class="py-20 relative" id="qr-section">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3
-              class="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent"
-            >
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-black">
               📱 Kết nối ngay qua Zalo
             </h3>
           </div>
@@ -403,26 +290,12 @@
             <div class="flex justify-center">
               <div class="relative">
                 <div
-                  class="glass rounded-3xl p-8 hover:scale-105 transition-all duration-300"
+                  class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
                 >
-                  <!-- QR Corners -->
-                  <div
-                    class="absolute top-6 left-6 w-6 h-6 border-l-4 border-t-4 border-primary-400 rounded-tl-lg"
-                  ></div>
-                  <div
-                    class="absolute top-6 right-6 w-6 h-6 border-r-4 border-t-4 border-primary-400 rounded-tr-lg"
-                  ></div>
-                  <div
-                    class="absolute bottom-6 left-6 w-6 h-6 border-l-4 border-b-4 border-primary-400 rounded-bl-lg"
-                  ></div>
-                  <div
-                    class="absolute bottom-6 right-6 w-6 h-6 border-r-4 border-b-4 border-primary-400 rounded-br-lg"
-                  ></div>
-
                   <img
                     src="assets/QR.jpg"
                     alt="QR Code Zalo - Nguyễn Trọng Hiếu"
-                    class="w-64 h-64 rounded-2xl border-2 border-white/20 hover:border-primary-400/50 transition-all duration-300"
+                    class="w-64 h-64 rounded-xl"
                   />
                 </div>
               </div>
@@ -430,43 +303,45 @@
 
             <!-- QR Info -->
             <div class="space-y-8">
-              <div class="glass rounded-2xl p-6">
+              <div
+                class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
+              >
                 <div class="flex items-center space-x-4 mb-6">
                   <div
-                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center"
+                    class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"
                   >
-                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                    <i class="fab fa-whatsapp text-blue-600 text-xl"></i>
                   </div>
                   <div>
-                    <h4 class="text-xl font-semibold text-white">Zalo Chat</h4>
-                    <p class="text-white/70">Nguyễn Trọng Hiếu</p>
+                    <h4 class="text-xl font-semibold text-black">Zalo Chat</h4>
+                    <p class="text-gray-600">Nguyễn Trọng Hiếu</p>
                   </div>
                 </div>
 
                 <div class="space-y-4">
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       1
                     </div>
-                    <span class="text-white/90">Mở ứng dụng Zalo</span>
+                    <span class="text-gray-700">Mở ứng dụng Zalo</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       2
                     </div>
-                    <span class="text-white/90">Chọn "Quét mã QR"</span>
+                    <span class="text-gray-700">Chọn "Quét mã QR"</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       3
                     </div>
-                    <span class="text-white/90">Hướng camera vào mã QR</span>
+                    <span class="text-gray-700">Hướng camera vào mã QR</span>
                   </div>
                 </div>
               </div>
@@ -475,21 +350,21 @@
               <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <button
                   onclick="downloadQR()"
-                  class="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-primary-500/25"
+                  class="px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center space-x-2"
                 >
                   <i class="fas fa-download"></i>
                   <span>Tải xuống QR</span>
                 </button>
                 <button
                   onclick="copyLink()"
-                  class="px-6 py-3 glass text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                  class="px-6 py-3 bg-gray-100 text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center space-x-2"
                 >
                   <i class="fas fa-link"></i>
                   <span>Sao chép link</span>
                 </button>
                 <button
                   onclick="shareQR()"
-                  class="px-6 py-3 glass text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                  class="px-6 py-3 bg-gray-100 text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center space-x-2"
                 >
                   <i class="fas fa-share-alt"></i>
                   <span>Chia sẻ</span>
@@ -501,102 +376,97 @@
       </section>
 
       <!-- Timeline Section -->
-      <section class="py-20 relative" id="timeline-section">
+      <section class="py-20 relative bg-gray-50" id="timeline-section">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3
-              class="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent"
-            >
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-black">
               🎓 Quá trình học tập và công tác
             </h3>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group animate-float"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center justify-between mb-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-graduation-cap text-white text-lg"></i>
+                  <i class="fas fa-graduation-cap text-blue-600 text-lg"></i>
                 </div>
                 <span
-                  class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium"
+                  class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
                   >2015 - 2018</span
                 >
               </div>
-              <h4 class="text-xl font-semibold text-white mb-2">
+              <h4 class="text-xl font-semibold text-black mb-2">
                 Trường THPT Nguyễn Bỉnh Khiêm
               </h4>
-              <p class="text-white/70">
+              <p class="text-gray-600">
                 Xã Đà Loan, huyện Đức Trọng, tỉnh Lâm Đồng
               </p>
             </div>
 
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group animate-float"
-              style="animation-delay: 0.5s"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center justify-between mb-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-university text-white text-lg"></i>
+                  <i class="fas fa-university text-purple-600 text-lg"></i>
                 </div>
                 <span
-                  class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm font-medium"
+                  class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
                   >2018 - 2023</span
                 >
               </div>
-              <h4 class="text-xl font-semibold text-white mb-2">
+              <h4 class="text-xl font-semibold text-black mb-2">
                 Trường Đại học Đà Lạt
               </h4>
-              <p class="text-white/70">
+              <p class="text-gray-600">
                 01 Phù Đổng Thiên Vương, TP. Đà Lạt, tỉnh Lâm Đồng
               </p>
             </div>
 
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group animate-float"
-              style="animation-delay: 1s"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center justify-between mb-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-medal text-white text-lg"></i>
+                  <i class="fas fa-medal text-yellow-600 text-lg"></i>
                 </div>
                 <span
-                  class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm font-medium"
+                  class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium"
                   >01/2023</span
                 >
               </div>
-              <h4 class="text-xl font-semibold text-white mb-2">
+              <h4 class="text-xl font-semibold text-black mb-2">
                 Tốt nghiệp thủ khoa ngành Công nghệ Thông tin hệ Kỹ sư
               </h4>
-              <p class="text-white/70">Trường Đại học Đà Lạt, GPA: 3.85/4.0</p>
+              <p class="text-gray-600">Trường Đại học Đà Lạt, GPA: 3.85/4.0</p>
             </div>
 
             <div
-              class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group animate-float"
-              style="animation-delay: 1.5s"
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
             >
               <div class="flex items-center justify-between mb-4">
                 <div
-                  class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                  class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"
                 >
-                  <i class="fas fa-briefcase text-white text-lg"></i>
+                  <i class="fas fa-briefcase text-green-600 text-lg"></i>
                 </div>
                 <span
-                  class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm font-medium"
+                  class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium"
                   >12/2024 - Hiện nay</span
                 >
               </div>
-              <h4 class="text-xl font-semibold text-white mb-2">
+              <h4 class="text-xl font-semibold text-black mb-2">
                 Trợ giảng tại Khoa Công nghệ Thông tin
               </h4>
-              <p class="text-white/70">Trường Đại học Đà Lạt</p>
+              <p class="text-gray-600">Trường Đại học Đà Lạt</p>
             </div>
           </div>
         </div>
@@ -606,9 +476,7 @@
       <section class="py-20 relative" id="github-section">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3
-              class="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent"
-            >
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-black">
               💻 Dự án GitHub nổi bật
             </h3>
           </div>
@@ -616,9 +484,9 @@
           <div class="repos-loading text-center" id="reposLoading">
             <div class="inline-flex items-center space-x-3">
               <div
-                class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-400"
+                class="animate-spin rounded-full h-8 w-8 border-b-2 border-black"
               ></div>
-              <p class="text-white/80">Đang tải repository từ GitHub...</p>
+              <p class="text-gray-600">Đang tải repository từ GitHub...</p>
             </div>
           </div>
 
@@ -633,7 +501,7 @@
             <a
               href="https://github.com/DalatCoder"
               target="_blank"
-              class="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-gray-500/25"
+              class="inline-flex items-center space-x-2 px-8 py-4 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
             >
               <i class="fab fa-github text-xl"></i>
               <span>Xem tất cả 127 repositories</span>
@@ -643,19 +511,17 @@
       </section>
 
       <!-- YouTube Series Section -->
-      <section class="py-20 relative" id="youtube-series">
+      <section class="py-20 relative bg-gray-50" id="youtube-series">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3
-              class="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent"
-            >
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-black">
               📚 Series Lập Trình
             </h3>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div
-              class="glass rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
             >
               <div class="aspect-video">
                 <iframe
@@ -669,16 +535,16 @@
                 </iframe>
               </div>
               <div class="p-6">
-                <h4 class="text-xl font-semibold text-white mb-3">
+                <h4 class="text-xl font-semibold text-black mb-3">
                   Lập trình cơ bản với C#
                 </h4>
-                <p class="text-white/70 mb-4">
+                <p class="text-gray-600 mb-4">
                   Học lập trình C# từ cơ bản thông qua các dự án thực tế
                 </p>
                 <a
                   href="https://www.youtube.com/playlist?list=PLprElE4eCkKfcdDloZIhpUrkbPplabO-u"
                   target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-colors duration-300"
+                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
                 >
                   <i class="fab fa-youtube"></i>
                   <span>Xem Playlist</span>
@@ -687,7 +553,7 @@
             </div>
 
             <div
-              class="glass rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
             >
               <div class="aspect-video">
                 <iframe
@@ -701,16 +567,16 @@
                 </iframe>
               </div>
               <div class="p-6">
-                <h4 class="text-xl font-semibold text-white mb-3">
+                <h4 class="text-xl font-semibold text-black mb-3">
                   Lập trình hướng đối tượng
                 </h4>
-                <p class="text-white/70 mb-4">
+                <p class="text-gray-600 mb-4">
                   Tìm hiểu sâu về OOP với C# - từ cơ bản đến nâng cao
                 </p>
                 <a
                   href="https://www.youtube.com/playlist?list=PLprElE4eCkKd56qWgNO6oz9irkQq_RCjl"
                   target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-colors duration-300"
+                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
                 >
                   <i class="fab fa-youtube"></i>
                   <span>Xem Playlist</span>
@@ -719,7 +585,7 @@
             </div>
 
             <div
-              class="glass rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+              class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
             >
               <div class="aspect-video">
                 <iframe
@@ -733,16 +599,16 @@
                 </iframe>
               </div>
               <div class="p-6">
-                <h4 class="text-xl font-semibold text-white mb-3">
+                <h4 class="text-xl font-semibold text-black mb-3">
                   Dự án Quản lý nhân viên
                 </h4>
-                <p class="text-white/70 mb-4">
+                <p class="text-gray-600 mb-4">
                   Xây dựng ứng dụng quản lý nhân viên hoàn chỉnh
                 </p>
                 <a
                   href="https://www.youtube.com/playlist?list=PLprElE4eCkKeHs9EWpQWr0AtxJD_16V8N"
                   target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-colors duration-300"
+                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
                 >
                   <i class="fab fa-youtube"></i>
                   <span>Xem Playlist</span>
@@ -757,9 +623,7 @@
       <section class="py-20 relative" id="social-section">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3
-              class="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent"
-            >
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-black">
               🌐 Kết nối với tôi
             </h3>
           </div>
@@ -768,52 +632,52 @@
             <a
               href="https://fb.com/dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 glass rounded-full hover:scale-105 transition-all duration-300 group"
+              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
             >
               <div
-                class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-facebook-f text-white"></i>
               </div>
-              <span class="text-white font-medium">Facebook</span>
+              <span class="text-black font-medium">Facebook</span>
             </a>
 
             <a
               href="https://github.com/dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 glass rounded-full hover:scale-105 transition-all duration-300 group"
+              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
             >
               <div
-                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-github text-white"></i>
               </div>
-              <span class="text-white font-medium">GitHub</span>
+              <span class="text-black font-medium">GitHub</span>
             </a>
 
             <a
               href="https://youtube.com/@dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 glass rounded-full hover:scale-105 transition-all duration-300 group"
+              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
             >
               <div
-                class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center group-hover:animate-pulse"
+                class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-youtube text-white"></i>
               </div>
-              <span class="text-white font-medium">YouTube</span>
+              <span class="text-black font-medium">YouTube</span>
             </a>
           </div>
         </div>
       </section>
 
       <!-- Footer Section -->
-      <footer class="py-12 border-t border-white/10">
+      <footer class="py-12 border-t border-gray-200 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p class="text-white/60">
+          <p class="text-gray-600">
             &copy; 2025 Nguyễn Trọng Hiếu. Được tạo với
-            <span class="text-red-400">❤️</span>
-            và <span class="text-primary-400">Tailwind CSS</span>
+            <span class="text-red-500">❤️</span>
+            và <span class="text-black">Tailwind CSS</span>
           </p>
         </div>
       </footer>
@@ -822,7 +686,7 @@
     <!-- Back to Top Button -->
     <a
       href="#header"
-      class="fixed bottom-8 right-8 w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 opacity-0 invisible"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors opacity-0 invisible"
       id="backToTop"
     >
       <i class="fas fa-chevron-up"></i>

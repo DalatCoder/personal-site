@@ -46,31 +46,31 @@ function createRepoCard(repo) {
   const isPublic = !repo.private;
 
   return `
-        <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
             <div class="flex items-center justify-between mb-4">
                 <a href="${
                   repo.html_url
-                }" target="_blank" class="flex items-center space-x-2 text-white hover:text-primary-300 transition-colors group-hover:text-primary-300">
+                }" target="_blank" class="flex items-center space-x-2 text-black hover:text-gray-600 transition-colors">
                     <i class="fas fa-book"></i>
                     <span class="font-semibold truncate">${repo.name}</span>
                 </a>
                 <span class="px-2 py-1 text-xs font-medium rounded-full ${
                   isPublic
-                    ? "bg-green-500/20 text-green-300"
-                    : "bg-yellow-500/20 text-yellow-300"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-yellow-100 text-yellow-700"
                 }">${isPublic ? "Public" : "Private"}</span>
             </div>
             
-            <p class="text-white/70 text-sm mb-4 line-clamp-2">${description}</p>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">${description}</p>
             
             <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-4 text-sm text-white/60">
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
                     <div class="flex items-center space-x-1">
-                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
                         <span>${formatNumber(stars)}</span>
                     </div>
                     <div class="flex items-center space-x-1">
-                        <i class="fas fa-code-branch text-blue-400"></i>
+                        <i class="fas fa-code-branch text-blue-500"></i>
                         <span>${formatNumber(forks)}</span>
                     </div>
                 </div>
@@ -78,20 +78,20 @@ function createRepoCard(repo) {
                     <div class="w-3 h-3 rounded-full" style="background-color: ${getLanguageColor(
                       language
                     )}"></div>
-                    <span class="text-white/70">${language}</span>
+                    <span class="text-gray-600">${language}</span>
                 </div>
             </div>
             
             <div class="flex space-x-2">
                 <a href="${
                   repo.html_url
-                }" target="_blank" class="flex-1 px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
+                }" target="_blank" class="flex-1 px-3 py-2 bg-black hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
                     <i class="fas fa-eye"></i>
                     <span>Xem</span>
                 </a>
                 ${
                   repo.homepage
-                    ? `<a href="${repo.homepage}" target="_blank" class="flex-1 px-3 py-2 glass hover:bg-white/10 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
+                    ? `<a href="${repo.homepage}" target="_blank" class="flex-1 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-black text-sm font-medium rounded-lg transition-colors flex items-center justify-center space-x-1">
                     <i class="fas fa-external-link-alt"></i>
                     <span>Demo</span>
                 </a>`
@@ -142,8 +142,8 @@ async function loadGitHubRepos() {
     const loadingDiv = document.getElementById("reposLoading");
     loadingDiv.innerHTML = `
             <div class="flex items-center justify-center space-x-3">
-                <i class="fas fa-exclamation-triangle text-yellow-400"></i>
-                <p class="text-white/80">Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
+                <i class="fas fa-exclamation-triangle text-yellow-500"></i>
+                <p class="text-gray-600">Không thể tải repository từ GitHub. Vui lòng thử lại sau.</p>
             </div>
         `;
   }
@@ -247,21 +247,21 @@ function showNotification(message, type = "info") {
 
   // Create notification element
   const notification = document.createElement("div");
-  notification.className = `notification fixed top-4 right-4 max-w-sm glass rounded-xl p-4 shadow-2xl z-50 transition-all duration-300 transform translate-x-full`;
+  notification.className = `notification fixed top-4 right-4 max-w-sm bg-white rounded-xl p-4 shadow-lg border border-gray-200 z-50 transition-all duration-300 transform translate-x-full`;
 
   const borderColor =
     type === "success"
-      ? "border-l-4 border-green-400"
+      ? "border-l-4 border-green-500"
       : type === "error"
-      ? "border-l-4 border-red-400"
-      : "border-l-4 border-blue-400";
+      ? "border-l-4 border-red-500"
+      : "border-l-4 border-blue-500";
 
   notification.className += ` ${borderColor}`;
 
   notification.innerHTML = `
         <div class="flex items-center justify-between space-x-3">
-            <span class="text-white font-medium text-sm flex-1">${message}</span>
-            <button class="text-white/60 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10" onclick="this.parentElement.parentElement.remove()">
+            <span class="text-black font-medium text-sm flex-1">${message}</span>
+            <button class="text-gray-400 hover:text-black transition-colors p-1 rounded-full hover:bg-gray-100" onclick="this.parentElement.parentElement.remove()">
                 <i class="fas fa-times text-sm"></i>
             </button>
         </div>
@@ -382,11 +382,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add scrolled class to navigation
     if (scrollY > 50) {
-      nav.classList.add("bg-black/50");
-      nav.classList.remove("bg-black/20");
+      nav.classList.add("bg-white/95");
+      nav.classList.remove("bg-white/90");
     } else {
-      nav.classList.remove("bg-black/50");
-      nav.classList.add("bg-black/20");
+      nav.classList.remove("bg-white/95");
+      nav.classList.add("bg-white/90");
     }
 
     // Update active navigation link
@@ -449,9 +449,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Observe sections for scroll animations
   document.querySelectorAll("section").forEach((section, index) => {
     section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all 0.6s ease-out";
-    section.style.transitionDelay = `${index * 0.1}s`;
+    section.style.transform = "translateY(20px)";
+    section.style.transition = "all 0.4s ease-out";
+    section.style.transitionDelay = `${index * 0.05}s`;
     observer.observe(section);
   });
 
@@ -471,18 +471,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   `;
   document.head.appendChild(style);
-
-  // Enhanced hover effects for cards
-  const cards = document.querySelectorAll(".glass");
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.style.transform = "translateY(-8px) scale(1.02)";
-      this.style.boxShadow = "0 25px 50px rgba(0, 0, 0, 0.4)";
-    });
-
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0) scale(1)";
-      this.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.2)";
-    });
-  });
 });
