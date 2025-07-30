@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nguyễn Trọng Hiếu - Trợ giảng CNTT</title>
+    <title>Nguyễn Trọng Hiếu - Giảng viên CNTT</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -86,6 +86,17 @@
                   href="#github-section"
                   class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
                 >
+                  GitHub
+                  <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects-section"
+                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+                >
                   Dự án
                   <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
@@ -163,6 +174,11 @@
             >
             <a
               href="#github-section"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+              >GitHub</a
+            >
+            <a
+              href="#projects-section"
               class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
               >Dự án</a
             >
@@ -254,7 +270,7 @@
                     Công việc hiện tại
                   </div>
                   <div class="text-sm font-semibold text-gray-900">
-                    Trợ giảng tại Khoa CNTT, ĐH Đà Lạt
+                    Giảng viên tại Khoa CNTT, ĐH Đà Lạt
                   </div>
                 </div>
               </div>
@@ -510,11 +526,162 @@
                 >
               </div>
               <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Trợ giảng tại Khoa Công nghệ Thông tin
+                Giảng viên tại Khoa Công nghệ Thông tin
               </h4>
               <p class="text-gray-600">
                 Trường Đại học Đà Lạt, 01 Phù Đổng Thiên Vương, Phường Lâm Viên
                 - Đà Lạt, Lâm Đồng
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Real Projects Showcase Section -->
+      <section class="py-20 relative" id="projects-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+              Dự án thực tế
+            </h3>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Các dự án đã triển khai và đưa vào sử dụng thực tế
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <!-- Project 1: CNTT DLU Website -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div class="aspect-video bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center text-white">
+                    <i class="fas fa-university text-4xl mb-3"></i>
+                    <h4 class="text-lg font-semibold">CNTT DLU</h4>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
+                    Website chính thức
+                  </span>
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                  Website Khoa Công nghệ Thông tin
+                </h4>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Hệ thống quản lý tin tức, sự kiện của Khoa Công nghệ Thông tin, Trường Đại học Đà Lạt. Cung cấp thông tin về chương trình đào tạo, tin tức, sự kiện và các hoạt động của khoa.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                    <span class="text-sm text-gray-500">Đang vận hành</span>
+                  </div>
+                  <a
+                    href="https://cntt.dlu.edu.vn"
+                    target="_blank"
+                    class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Xem website</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Tissue Culture Management -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div class="aspect-video bg-gradient-to-br from-green-500 to-emerald-600 relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center text-white">
+                    <i class="fas fa-seedling text-4xl mb-3"></i>
+                    <h4 class="text-lg font-semibold">Tissue Culture</h4>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
+                    Giải 3 TechFest 2023
+                  </span>
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                  Hệ thống quản lý phòng nuôi cấy mô
+                </h4>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Hệ thống quản lý các phòng nuôi cấy mô trên địa bàn Đà Lạt. Đạt giải 3 cuộc thi TechFest Lâm Đồng 2023 - Cuộc thi Khởi nghiệp đổi mới sáng tạo tỉnh Lâm Đồng.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                    <span class="text-sm text-gray-500">Giải 3 TechFest</span>
+                  </div>
+                  <a
+                    href="https://baolamdong.vn/chung-ket-cuoc-thi-khoi-nghiep-doi-moi-sang-tao-tinh-lam-dong-2023-285221.html"
+                    target="_blank"
+                    class="inline-flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
+                  >
+                    <i class="fas fa-newspaper"></i>
+                    <span>Xem báo chí</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Gaming Community Landing Page -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300 group lg:col-span-2 xl:col-span-1"
+            >
+              <div class="aspect-video bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center text-white">
+                    <i class="fas fa-gamepad text-4xl mb-3"></i>
+                    <h4 class="text-lg font-semibold">Gaming Community</h4>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
+                    Dự án khách hàng
+                  </span>
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                  Landing Page Gaming Community
+                </h4>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Trang web giới thiệu hội nhóm game online được xây dựng riêng cho khách hàng. Bao gồm phân tích yêu cầu, thiết kế giao diện, xây dựng hệ thống quản lý, triển khai và cấu hình domain.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                    <span class="text-sm text-gray-500">Full-stack</span>
+                  </div>
+                  <a
+                    href="https://trasuas18thoigian.com/"
+                    target="_blank"
+                    class="inline-flex items-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Xem website</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <div class="bg-blue-50 rounded-xl p-6 inline-block">
+              <p class="text-blue-700 font-medium mb-2">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Có ý tưởng dự án?
+              </p>
+              <p class="text-blue-600 text-sm">
+                Liên hệ để thảo luận về dự án của bạn
               </p>
             </div>
           </div>
@@ -529,8 +696,11 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              Dự án GitHub nổi bật
+              GitHub Repositories
             </h3>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Các dự án mã nguồn mở và học tập trên GitHub
+            </p>
           </div>
 
           <div class="repos-loading text-center" id="reposLoading">
