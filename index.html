@@ -9,6 +9,29 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.5s ease-out'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' }
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              }
+            }
+          }
+        }
+      }
+    </script>
 
     <style>
       .avatar {
@@ -16,7 +39,7 @@
       }
     </style>
   </head>
-  <body class="bg-white min-h-screen font-sans text-black overflow-x-hidden">
+  <body class="bg-white dark:bg-gray-900 min-h-screen font-sans text-black dark:text-white overflow-x-hidden transition-colors duration-300">
     <!-- Scroll Progress Indicator -->
     <div
       class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 z-50 transition-all duration-300"
@@ -25,7 +48,7 @@
 
     <!-- Navigation Menu -->
     <nav
-      class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-blue-100 transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 transition-all duration-300"
       id="mainNav"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,16 +58,16 @@
           </div>
 
           <!-- Desktop Menu -->
-          <div class="hidden md:block">
+          <div class="hidden md:flex items-center space-x-8">
             <ul class="flex space-x-8" id="navMenu">
               <li>
                 <a
                   href="#header"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+                  class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 relative group"
                 >
                   Trang chủ
                   <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"
                   ></span>
                 </a>
               </li>
@@ -126,10 +149,28 @@
                 </a>
               </li>
             </ul>
+            
+            <!-- Dark Mode Toggle -->
+            <button
+              id="darkModeToggleDesktop"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group"
+            >
+              <i class="fas fa-sun text-yellow-500 dark:hidden group-hover:scale-110 transition-transform"></i>
+              <i class="fas fa-moon text-blue-400 hidden dark:block group-hover:scale-110 transition-transform"></i>
+            </button>
           </div>
 
           <!-- Mobile menu button -->
-          <div class="md:hidden">
+          <div class="md:hidden flex items-center space-x-3">
+            <!-- Dark Mode Toggle -->
+            <button
+              id="darkModeToggle"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+            >
+              <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+              <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
+            </button>
+            
             <button
               class="nav-toggle flex flex-col justify-center items-center w-6 h-6 space-y-1"
               id="navToggle"
@@ -200,7 +241,7 @@
     <div class="min-h-screen pt-16">
       <!-- Header Section -->
       <section
-        class="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 to-indigo-100"
+        class="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900"
         id="header"
       >
         <div
@@ -210,17 +251,17 @@
             <img
               src="assets/avatar.jpg"
               alt="Nguyễn Trọng Hiếu"
-              class="w-32 h-32 lg:w-40 lg:h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-xl ring-4 ring-blue-100 object-cover avatar"
+              class="w-32 h-32 lg:w-40 lg:h-40 rounded-full mx-auto mb-6 border-4 border-white dark:border-gray-700 shadow-xl ring-4 ring-blue-100 dark:ring-blue-900 object-cover avatar"
             />
           </div>
-          <h1 class="text-3xl lg:text-5xl font-bold mb-2 text-gray-900">
+          <h1 class="text-3xl lg:text-5xl font-bold mb-2 text-gray-900 dark:text-white">
             Nguyễn Trọng Hiếu
           </h1>
-          <p class="text-lg lg:text-xl text-blue-600 mb-4 font-medium">
+          <p class="text-lg lg:text-xl text-blue-600 dark:text-blue-400 mb-4 font-medium">
             @DalatCoder
           </p>
           <p
-            class="text-lg lg:text-xl text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium"
+            class="text-lg lg:text-xl text-blue-700 dark:text-blue-300 max-w-2xl mx-auto leading-relaxed font-medium"
           >
             Giảng viên tại Khoa Công nghệ Thông tin<br />
             Trường Đại học Đà Lạt
@@ -229,11 +270,11 @@
       </section>
 
       <!-- Personal Information Section -->
-      <section class="py-20 relative" id="info-section">
+      <section class="py-20 relative dark:bg-gray-900" id="info-section">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
             >
               <div class="flex items-center space-x-4">
                 <div
@@ -308,12 +349,12 @@
 
       <!-- QR Code Section -->
       <section
-        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50"
+        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
         id="qr-section"
       >
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Kết nối ngay qua Zalo
             </h3>
           </div>
@@ -323,7 +364,7 @@
             <div class="flex justify-center">
               <div class="relative">
                 <div
-                  class="bg-white rounded-2xl p-8 shadow-xl border border-blue-200"
+                  class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-blue-200 dark:border-gray-700"
                 >
                   <img
                     src="assets/QR.jpg"
@@ -337,46 +378,46 @@
             <!-- QR Info -->
             <div class="space-y-8">
               <div
-                class="bg-white rounded-xl p-6 shadow-lg border border-blue-100"
+                class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-gray-700"
               >
                 <div class="flex items-center space-x-4 mb-6">
                   <div
-                    class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center"
+                    class="w-12 h-12 bg-blue-500 dark:bg-blue-600 rounded-xl flex items-center justify-center"
                   >
                     <i class="fab fa-whatsapp text-white text-xl"></i>
                   </div>
                   <div>
-                    <h4 class="text-xl font-semibold text-gray-900">
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">
                       Zalo Chat
                     </h4>
-                    <p class="text-blue-600">Nguyễn Trọng Hiếu</p>
+                    <p class="text-blue-600 dark:text-blue-400">Nguyễn Trọng Hiếu</p>
                   </div>
                 </div>
 
                 <div class="space-y-4">
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       1
                     </div>
-                    <span class="text-gray-700">Mở ứng dụng Zalo</span>
+                    <span class="text-gray-700 dark:text-gray-300">Mở ứng dụng Zalo</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       2
                     </div>
-                    <span class="text-gray-700">Chọn "Quét mã QR"</span>
+                    <span class="text-gray-700 dark:text-gray-300">Chọn "Quét mã QR"</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <div
-                      class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
                     >
                       3
                     </div>
-                    <span class="text-gray-700">Hướng camera vào mã QR</span>
+                    <span class="text-gray-700 dark:text-gray-300">Hướng camera vào mã QR</span>
                   </div>
                 </div>
               </div>
@@ -385,21 +426,21 @@
               <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <button
                   onclick="downloadQR()"
-                  class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center space-x-2 shadow-lg hover:shadow-xl"
+                  class="px-6 py-3 bg-blue-600 dark:bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors flex items-center space-x-2 shadow-lg hover:shadow-xl"
                 >
                   <i class="fas fa-download"></i>
                   <span>Tải xuống QR</span>
                 </button>
                 <button
                   onclick="copyLink()"
-                  class="px-6 py-3 bg-blue-100 text-blue-700 rounded-lg font-semibold hover:bg-blue-200 transition-colors flex items-center space-x-2"
+                  class="px-6 py-3 bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 rounded-lg font-semibold hover:bg-blue-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
                 >
                   <i class="fas fa-link"></i>
                   <span>Sao chép link</span>
                 </button>
                 <button
                   onclick="shareQR()"
-                  class="px-6 py-3 bg-blue-100 text-blue-700 rounded-lg font-semibold hover:bg-blue-200 transition-colors flex items-center space-x-2"
+                  class="px-6 py-3 bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 rounded-lg font-semibold hover:bg-blue-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
                 >
                   <i class="fas fa-share-alt"></i>
                   <span>Chia sẻ</span>
@@ -690,15 +731,15 @@
 
       <!-- GitHub Repositories Section -->
       <section
-        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50"
+        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
         id="github-section"
       >
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               GitHub Repositories
             </h3>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Các dự án mã nguồn mở và học tập trên GitHub
             </p>
           </div>
@@ -706,9 +747,9 @@
           <div class="repos-loading text-center" id="reposLoading">
             <div class="inline-flex items-center space-x-3">
               <div
-                class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+                class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 dark:border-blue-400"
               ></div>
-              <p class="text-blue-700">Đang tải repository từ GitHub...</p>
+              <p class="text-blue-700 dark:text-blue-300">Đang tải repository từ GitHub...</p>
             </div>
           </div>
 
@@ -723,7 +764,7 @@
             <a
               href="https://github.com/DalatCoder"
               target="_blank"
-              class="inline-flex items-center space-x-2 px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
+              class="inline-flex items-center space-x-2 px-8 py-4 bg-gray-900 dark:bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors shadow-lg hover:shadow-xl"
             >
               <i class="fab fa-github text-xl"></i>
               <span>Xem tất cả 127 repositories</span>
@@ -843,12 +884,12 @@
 
       <!-- Social Media Section -->
       <section
-        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50"
+        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
         id="social-section"
       >
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Kết nối với tôi
             </h3>
           </div>
@@ -857,49 +898,49 @@
             <a
               href="https://fb.com/dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-xl shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
             >
               <div
-                class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center"
+                class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-facebook-f text-white"></i>
               </div>
-              <span class="text-gray-900 font-medium">Facebook</span>
+              <span class="text-gray-900 dark:text-white font-medium">Facebook</span>
             </a>
 
             <a
               href="https://github.com/dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-xl shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
             >
               <div
-                class="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center"
+                class="w-8 h-8 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-github text-white"></i>
               </div>
-              <span class="text-gray-900 font-medium">GitHub</span>
+              <span class="text-gray-900 dark:text-white font-medium">GitHub</span>
             </a>
 
             <a
               href="https://youtube.com/@dalatcoder"
               target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white rounded-xl shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
             >
               <div
-                class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center"
+                class="w-8 h-8 bg-red-600 dark:bg-red-500 rounded-full flex items-center justify-center"
               >
                 <i class="fab fa-youtube text-white"></i>
               </div>
-              <span class="text-gray-900 font-medium">YouTube</span>
+              <span class="text-gray-900 dark:text-white font-medium">YouTube</span>
             </a>
           </div>
         </div>
       </section>
 
       <!-- Footer Section -->
-      <footer class="py-12 border-t border-blue-200 bg-white">
+      <footer class="py-12 border-t border-blue-200 dark:border-gray-700 bg-white dark:bg-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p class="text-gray-600">
+          <p class="text-gray-600 dark:text-gray-400">
             &copy; 2025 Nguyễn Trọng Hiếu. Được tạo với
             <span class="text-red-500">❤️</span>
           </p>
@@ -918,5 +959,85 @@
 
     <!-- External JavaScript -->
     <script src="script.js"></script>
+    
+    <!-- Dark Mode Enhancements Script -->
+    <script>
+      // Apply dark mode classes to all relevant elements after page load
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add dark mode classes to common elements
+        const elementsToUpdate = [
+          { selector: '.bg-white', classes: 'dark:bg-gray-800' },
+          { selector: '.text-gray-900', classes: 'dark:text-white' },
+          { selector: '.text-gray-700', classes: 'dark:text-gray-300' },
+          { selector: '.text-gray-600', classes: 'dark:text-gray-400' },
+          { selector: '.border-blue-100', classes: 'dark:border-gray-700' },
+          { selector: '.hover\\:border-blue-200', classes: 'dark:hover:border-blue-600' },
+          { selector: '.bg-blue-50', classes: 'dark:bg-gray-800' },
+          { selector: '.bg-indigo-50', classes: 'dark:bg-gray-800' },
+          { selector: '.border-t', classes: 'dark:border-gray-700' }
+        ];
+        
+        elementsToUpdate.forEach(({ selector, classes }) => {
+          document.querySelectorAll(selector).forEach(el => {
+            el.className += ' ' + classes;
+          });
+        });
+        
+        // Update notification styles for dark mode
+        const originalShowNotification = window.showNotification;
+        if (originalShowNotification) {
+          window.showNotification = function(message, type = "info") {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector(".notification");
+            if (existingNotification) {
+              existingNotification.remove();
+            }
+
+            // Create notification element with dark mode support
+            const notification = document.createElement("div");
+            notification.className = `notification fixed top-4 right-4 max-w-sm bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border border-blue-200 dark:border-gray-600 z-50 transition-all duration-300 transform translate-x-full`;
+
+            const borderColor =
+              type === "success"
+                ? "border-l-4 border-green-500"
+                : type === "error"
+                ? "border-l-4 border-red-500"
+                : "border-l-4 border-blue-500";
+
+            notification.className += ` ${borderColor}`;
+
+            notification.innerHTML = `
+              <div class="flex items-center justify-between space-x-3">
+                  <span class="text-gray-900 dark:text-white font-medium text-sm flex-1">${message}</span>
+                  <button class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 rounded-full hover:bg-blue-50 dark:hover:bg-gray-700" onclick="this.parentElement.parentElement.remove()">
+                      <i class="fas fa-times text-sm"></i>
+                  </button>
+              </div>
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+              notification.classList.remove("translate-x-full");
+              notification.classList.add("translate-x-0");
+            }, 100);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+              if (notification.parentNode) {
+                notification.classList.add("translate-x-full");
+                setTimeout(() => {
+                  if (notification.parentNode) {
+                    notification.remove();
+                  }
+                }, 300);
+              }
+            }, 5000);
+          };
+        }
+      });
+    </script>
   </body>
 </html>

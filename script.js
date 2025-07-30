@@ -1,3 +1,53 @@
+// Dark Mode functionality
+function initDarkMode() {
+  // Check for saved theme preference or default to light mode
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  }
+  
+  // Toggle function
+  function toggleDarkMode() {
+    const isDark = document.documentElement.classList.contains('dark');
+    
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    
+    // Add a subtle animation effect
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+  }
+  
+  // Add event listeners to both toggle buttons
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeToggleDesktop = document.getElementById('darkModeToggleDesktop');
+  
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  }
+  
+  if (darkModeToggleDesktop) {
+    darkModeToggleDesktop.addEventListener('click', toggleDarkMode);
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+}
+
 // Language colors mapping
 const languageColors = {
   JavaScript: "#f1e05a",
@@ -46,25 +96,25 @@ function createRepoCard(repo) {
   const isPublic = !repo.private;
 
   return `
-        <div class="bg-white rounded-xl p-6 shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300">
             <div class="flex items-center justify-between mb-4">
                 <a href="${
                   repo.html_url
-                }" target="_blank" class="flex items-center space-x-2 text-gray-900 hover:text-blue-600 transition-colors">
+                }" target="_blank" class="flex items-center space-x-2 text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     <i class="fas fa-book"></i>
                     <span class="font-semibold truncate">${repo.name}</span>
                 </a>
                 <span class="px-2 py-1 text-xs font-medium rounded-full ${
                   isPublic
-                    ? "bg-green-100 text-green-700"
-                    : "bg-yellow-100 text-yellow-700"
+                    ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300"
+                    : "bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300"
                 }">${isPublic ? "Public" : "Private"}</span>
             </div>
             
-            <p class="text-gray-600 text-sm mb-4 line-clamp-2">${description}</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${description}</p>
             
             <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                     <div class="flex items-center space-x-1">
                         <i class="fas fa-star text-yellow-500"></i>
                         <span>${formatNumber(stars)}</span>
@@ -74,7 +124,7 @@ function createRepoCard(repo) {
                         <span>${formatNumber(forks)}</span>
                     </div>
                 </div>
-                <div class="flex items-center space-x-2 text-sm">
+                <div class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
                     <div class="w-3 h-3 rounded-full" style="background-color: ${getLanguageColor(
                       language
                     )}"></div>
@@ -290,6 +340,9 @@ function showNotification(message, type = "info") {
 
 // Navigation functionality
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize dark mode first
+  initDarkMode();
+  
   // Get navigation elements
   const nav = document.getElementById("mainNav");
   const navToggle = document.getElementById("navToggle");
