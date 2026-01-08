@@ -40,6 +40,9 @@
     </script>
 
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       .avatar {
         object-position: center 30%;
       }
@@ -79,10 +82,10 @@
               </li>
               <li>
                 <a
-                  href="#info-section"
+                  href="#tutoring-section"
                   class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
                 >
-                  Thông tin
+                  Dạy kèm
                   <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
                   ></span>
@@ -94,6 +97,17 @@
                   class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
                 >
                   Liên hệ
+                  <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#info-section"
+                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+                >
+                  Thông tin
                   <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
                   ></span>
@@ -123,43 +137,10 @@
               </li>
               <li>
                 <a
-                  href="#tutoring-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Dạy kèm
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Dự án
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
                   href="#github-section"
                   class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
                 >
                   GitHub
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#youtube-series"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  YouTube
                   <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
                   ></span>
@@ -227,14 +208,19 @@
               >Trang chủ</a
             >
             <a
-              href="#info-section"
+              href="#tutoring-section"
               class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Thông tin</a
+              >Dạy kèm</a
             >
             <a
               href="#qr-section"
               class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
               >Liên hệ</a
+            >
+            <a
+              href="#info-section"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+              >Thông tin</a
             >
             <a
               href="#timeline-section"
@@ -247,24 +233,9 @@
               >Giảng dạy</a
             >
             <a
-              href="#tutoring-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Dạy kèm</a
-            >
-            <a
-              href="#projects-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Dự án</a
-            >
-            <a
               href="#github-section"
               class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
               >GitHub</a
-            >
-            <a
-              href="#youtube-series"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >YouTube</a
             >
             <a
               href="#social-section"
@@ -934,166 +905,25 @@
                 Sẵn sàng bắt đầu?
               </h4>
               <p class="text-blue-100 mb-6">
-                Liên hệ qua Zalo để được tư vấn lộ trình học tập phù hợp
+                Đăng ký ngay hoặc liên hệ qua Zalo để được tư vấn lộ trình học tập
               </p>
-              <a
-                href="#qr-section"
-                class="inline-flex items-center space-x-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl"
-              >
-                <i class="fab fa-whatsapp text-xl"></i>
-                <span>Liên hệ qua Zalo</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Real Projects Showcase Section -->
-      <section class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900" id="projects-section">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              Dự án thực tế
-            </h3>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-              Các dự án đã triển khai và đưa vào sử dụng thực tế
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            <!-- Project 1: CNTT DLU Website -->
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 group flex flex-col"
-            >
-              <div class="aspect-video bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center text-white">
-                    <i class="fas fa-university text-4xl mb-3"></i>
-                    <h4 class="text-lg font-semibold">CNTT DLU</h4>
-                  </div>
-                </div>
-                <div class="absolute top-4 right-4">
-                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
-                    Website chính thức
-                  </span>
-                </div>
+              <div class="flex flex-wrap justify-center gap-4">
+                <a
+                  href="#GOOGLE_FORM_LINK#"
+                  target="_blank"
+                  class="inline-flex items-center space-x-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl"
+                >
+                  <i class="fab fa-google text-xl"></i>
+                  <span>Đăng ký học</span>
+                </a>
+                <a
+                  href="#qr-section"
+                  class="inline-flex items-center space-x-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl"
+                >
+                  <i class="fab fa-whatsapp text-xl"></i>
+                  <span>Liên hệ qua Zalo</span>
+                </a>
               </div>
-              <div class="p-6 flex flex-col flex-1">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Website Khoa Công nghệ Thông tin
-                </h4>
-                <p class="text-gray-600 mb-6 text-sm leading-relaxed flex-1">
-                  Hệ thống quản lý tin tức, sự kiện của Khoa Công nghệ Thông tin, Trường Đại học Đà Lạt. Cung cấp thông tin về chương trình đào tạo, tin tức, sự kiện và các hoạt động của khoa.
-                </p>
-                <div class="flex items-center justify-between mt-auto">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
-                    <span class="text-sm text-gray-500">Đang vận hành</span>
-                  </div>
-                  <a
-                    href="https://cntt.dlu.edu.vn"
-                    target="_blank"
-                    class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>Xem website</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2: Tissue Culture Management -->
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 group flex flex-col"
-            >
-              <div class="aspect-video bg-gradient-to-br from-green-500 to-emerald-600 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center text-white">
-                    <i class="fas fa-seedling text-4xl mb-3"></i>
-                    <h4 class="text-lg font-semibold">Tissue Culture</h4>
-                  </div>
-                </div>
-                <div class="absolute top-4 right-4">
-                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
-                    Giải 3 TechFest 2023
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-1">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Hệ thống quản lý phòng nuôi cấy mô
-                </h4>
-                <p class="text-gray-600 mb-6 text-sm leading-relaxed flex-1">
-                  Hệ thống quản lý các phòng nuôi cấy mô trên địa bàn Đà Lạt. Đạt giải 3 cuộc thi TechFest Lâm Đồng 2023 - Cuộc thi Khởi nghiệp đổi mới sáng tạo tỉnh Lâm Đồng.
-                </p>
-                <div class="flex items-center justify-between mt-auto">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                    <span class="text-sm text-gray-500">Giải 3 TechFest</span>
-                  </div>
-                  <a
-                    href="https://baolamdong.vn/chung-ket-cuoc-thi-khoi-nghiep-doi-moi-sang-tao-tinh-lam-dong-2023-285221.html"
-                    target="_blank"
-                    class="inline-flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
-                  >
-                    <i class="fas fa-newspaper"></i>
-                    <span>Xem báo chí</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3: Gaming Community Landing Page -->
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300 group lg:col-span-2 xl:col-span-1 flex flex-col"
-            >
-              <div class="aspect-video bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center text-white">
-                    <i class="fas fa-gamepad text-4xl mb-3"></i>
-                    <h4 class="text-lg font-semibold">Gaming Community</h4>
-                  </div>
-                </div>
-                <div class="absolute top-4 right-4">
-                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
-                    Dự án khách hàng
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-1">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Landing Page Gaming Community
-                </h4>
-                <p class="text-gray-600 mb-6 text-sm leading-relaxed flex-1">
-                  Trang web giới thiệu hội nhóm game online được xây dựng riêng cho khách hàng. Bao gồm phân tích yêu cầu, thiết kế giao diện, xây dựng hệ thống quản lý, triển khai và cấu hình domain.
-                </p>
-                <div class="flex items-center justify-between mt-auto">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
-                    <span class="text-sm text-gray-500">Full-stack</span>
-                  </div>
-                  <a
-                    href="https://trasuas18thoigian.com/"
-                    target="_blank"
-                    class="inline-flex items-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg text-sm"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>Xem website</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center mt-12">
-            <div class="bg-blue-50 rounded-xl p-6 inline-block">
-              <p class="text-blue-700 font-medium mb-2">
-                <i class="fas fa-lightbulb mr-2"></i>
-                Có ý tưởng dự án?
-              </p>
-              <p class="text-blue-600 text-sm">
-                Liên hệ để thảo luận về dự án của bạn
-              </p>
             </div>
           </div>
         </div>
@@ -1139,115 +969,6 @@
               <i class="fab fa-github text-xl"></i>
               <span>Xem tất cả 127 repositories</span>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- YouTube Series Section -->
-      <section class="py-20 relative" id="youtube-series">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              Series Lập Trình
-            </h3>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="aspect-video">
-                <iframe
-                  class="w-full h-full"
-                  src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKfcdDloZIhpUrkbPplabO-u"
-                  title="Lập trình cơ bản với C#"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                >
-                </iframe>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Lập trình cơ bản với C#
-                </h4>
-                <p class="text-gray-600 mb-4">
-                  Học lập trình C# từ cơ bản thông qua các dự án thực tế
-                </p>
-                <a
-                  href="https://www.youtube.com/playlist?list=PLprElE4eCkKfcdDloZIhpUrkbPplabO-u"
-                  target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg"
-                >
-                  <i class="fab fa-youtube"></i>
-                  <span>Xem Playlist</span>
-                </a>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="aspect-video">
-                <iframe
-                  class="w-full h-full"
-                  src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKd56qWgNO6oz9irkQq_RCjl"
-                  title="Lập trình hướng đối tượng với C#"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                >
-                </iframe>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Lập trình hướng đối tượng
-                </h4>
-                <p class="text-gray-600 mb-4">
-                  Tìm hiểu sâu về OOP với C# - từ cơ bản đến nâng cao
-                </p>
-                <a
-                  href="https://www.youtube.com/playlist?list=PLprElE4eCkKd56qWgNO6oz9irkQq_RCjl"
-                  target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg"
-                >
-                  <i class="fab fa-youtube"></i>
-                  <span>Xem Playlist</span>
-                </a>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="aspect-video">
-                <iframe
-                  class="w-full h-full"
-                  src="https://www.youtube.com/embed/videoseries?list=PLprElE4eCkKeHs9EWpQWr0AtxJD_16V8N"
-                  title="Dự án Quản lý nhân viên"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                >
-                </iframe>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-semibold text-gray-900 mb-3">
-                  Dự án Quản lý nhân viên
-                </h4>
-                <p class="text-gray-600 mb-4">
-                  Xây dựng ứng dụng quản lý nhân viên hoàn chỉnh
-                </p>
-                <a
-                  href="https://www.youtube.com/playlist?list=PLprElE4eCkKeHs9EWpQWr0AtxJD_16V8N"
-                  target="_blank"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg"
-                >
-                  <i class="fab fa-youtube"></i>
-                  <span>Xem Playlist</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
