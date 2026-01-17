@@ -11,816 +11,2300 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-RM326384XB');
-</script>
+    </script>
 
-    <title>Nguyễn Trọng Hiếu - Giảng viên CNTT</title>
+    <title>Nguyễn Trọng Hiếu - Giảng viên CNTT | Đại học Đà Lạt</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/icon.png">
     <link rel="shortcut icon" type="image/png" href="assets/icon.png">
     <link rel="apple-touch-icon" href="assets/icon.png">
     
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {}
-        }
-      }
-    </script>
-
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
     <style>
+      :root {
+        /* Mountain Scholar Color Palette */
+        --color-pine: #0f4c3a;
+        --color-pine-light: #1a5f4a;
+        --color-pine-dark: #0a3328;
+        --color-copper: #c9784a;
+        --color-copper-light: #d8956b;
+        --color-gold: #d4a84b;
+        --color-cream: #faf6f1;
+        --color-cream-dark: #f0e9df;
+        --color-charcoal: #2d2d2d;
+        --color-charcoal-light: #404040;
+        --color-stone: #8b8178;
+        
+        /* Typography */
+        --font-display: 'Fraunces', Georgia, serif;
+        --font-body: 'DM Sans', system-ui, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       html {
         scroll-behavior: smooth;
       }
-      .avatar {
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-cream);
+        color: var(--color-charcoal);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Dark Mode */
+      body.dark {
+        --color-cream: #1a1a1a;
+        --color-cream-dark: #242424;
+        --color-charcoal: #f5f5f5;
+        --color-charcoal-light: #e0e0e0;
+        --color-stone: #9a9a9a;
+      }
+
+      body.dark {
+        background-color: #1a1a1a;
+        color: #f5f5f5;
+      }
+
+      /* Topographic Pattern Background */
+      .topo-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 Q30 30 50 50 Q70 70 50 90' fill='none' stroke='%230f4c3a' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M30 5 Q10 25 30 45 Q50 65 30 85' fill='none' stroke='%230f4c3a' stroke-width='0.5' opacity='0.06'/%3E%3Cpath d='M70 15 Q50 35 70 55 Q90 75 70 95' fill='none' stroke='%230f4c3a' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+        background-size: 200px 200px;
+      }
+
+      body.dark .topo-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 Q30 30 50 50 Q70 70 50 90' fill='none' stroke='%234ade80' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M30 5 Q10 25 30 45 Q50 65 30 85' fill='none' stroke='%234ade80' stroke-width='0.5' opacity='0.06'/%3E%3Cpath d='M70 15 Q50 35 70 55 Q90 75 70 95' fill='none' stroke='%234ade80' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+      }
+
+      /* Typography */
+      h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      /* Navigation */
+      .nav-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .nav-main.scrolled {
+        background: rgba(250, 246, 241, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(15, 76, 58, 0.1);
+        padding: 0.75rem 0;
+      }
+
+      body.dark .nav-main.scrolled {
+        background: rgba(26, 26, 26, 0.95);
+        border-bottom: 1px solid rgba(74, 222, 128, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-pine);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      body.dark .nav-logo {
+        color: #4ade80;
+      }
+
+      .nav-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--color-pine), var(--color-pine-light));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1rem;
+      }
+
+      body.dark .nav-logo-icon {
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--color-charcoal);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-copper);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      .nav-links a:hover {
+        color: var(--color-pine);
+      }
+
+      body.dark .nav-links a:hover {
+        color: #4ade80;
+      }
+
+      body.dark .nav-links a::after {
+        background: #4ade80;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .theme-toggle {
+        width: 44px;
+        height: 44px;
+        border: none;
+        background: var(--color-cream-dark);
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: var(--color-charcoal);
+      }
+
+      body.dark .theme-toggle {
+        background: #2d2d2d;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        background: var(--color-pine);
+        color: white;
+      }
+
+      body.dark .theme-toggle:hover {
+        background: #4ade80;
+        color: #1a1a1a;
+      }
+
+      .nav-cta {
+        background: linear-gradient(135deg, var(--color-pine), var(--color-pine-light));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      body.dark .nav-cta {
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: #1a1a1a;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(15, 76, 58, 0.3);
+      }
+
+      /* Mobile Menu */
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .mobile-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--color-charcoal);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-cream);
+        z-index: 99;
+        padding: 6rem 2rem 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      body.dark .mobile-menu {
+        background: #1a1a1a;
+      }
+
+      .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .mobile-menu-links a {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        color: var(--color-charcoal);
+        text-decoration: none;
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(15, 76, 58, 0.1);
+      }
+
+      body.dark .mobile-menu-links a {
+        border-bottom: 1px solid rgba(74, 222, 128, 0.1);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 8rem 1.5rem 4rem;
+        position: relative;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-content {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(15, 76, 58, 0.1);
+        color: var(--color-pine);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+
+      body.dark .hero-badge {
+        background: rgba(74, 222, 128, 0.15);
+        color: #4ade80;
+      }
+
+      .hero-badge i {
+        font-size: 0.75rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        color: var(--color-charcoal);
+      }
+
+      .hero-title .highlight {
+        color: var(--color-pine);
+        position: relative;
+      }
+
+      body.dark .hero-title .highlight {
+        color: #4ade80;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--color-stone);
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .stat-item {
+        text-align: left;
+      }
+
+      .stat-number {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-copper);
+        line-height: 1;
+      }
+
+      body.dark .stat-number {
+        color: #f59e0b;
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--color-stone);
+        margin-top: 0.25rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, var(--color-pine), var(--color-pine-light));
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      body.dark .btn-primary {
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: #1a1a1a;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(15, 76, 58, 0.25);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--color-charcoal);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(15, 76, 58, 0.2);
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      body.dark .btn-secondary {
+        border-color: rgba(74, 222, 128, 0.3);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(15, 76, 58, 0.05);
+        border-color: var(--color-pine);
+      }
+
+      body.dark .btn-secondary:hover {
+        background: rgba(74, 222, 128, 0.1);
+        border-color: #4ade80;
+      }
+
+      .hero-visual {
+        position: relative;
+        animation: fadeInUp 0.8s ease 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+
+      .hero-image-bg {
+        position: absolute;
+        inset: -20px;
+        background: linear-gradient(135deg, var(--color-pine), var(--color-copper));
+        border-radius: 30px;
+        transform: rotate(3deg);
+        opacity: 0.15;
+      }
+
+      .hero-image {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
         object-position: center 30%;
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero-card {
+        position: absolute;
+        background: white;
+        padding: 1rem 1.25rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      body.dark .hero-card {
+        background: #2d2d2d;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+
+      .hero-card-1 {
+        top: 15%;
+        left: -30px;
+        animation-delay: 0s;
+      }
+
+      .hero-card-2 {
+        bottom: 20%;
+        right: -30px;
+        animation-delay: 0.5s;
+      }
+
+      .hero-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+      }
+
+      .hero-card-icon.green {
+        background: rgba(15, 76, 58, 0.1);
+        color: var(--color-pine);
+      }
+
+      body.dark .hero-card-icon.green {
+        background: rgba(74, 222, 128, 0.15);
+        color: #4ade80;
+      }
+
+      .hero-card-icon.copper {
+        background: rgba(201, 120, 74, 0.1);
+        color: var(--color-copper);
+      }
+
+      body.dark .hero-card-icon.copper {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+      }
+
+      .hero-card-text {
+        font-size: 0.875rem;
+      }
+
+      .hero-card-text strong {
+        display: block;
+        color: var(--color-charcoal);
+      }
+
+      .hero-card-text span {
+        color: var(--color-stone);
+        font-size: 0.8rem;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 6rem 1.5rem;
+      }
+
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(15, 76, 58, 0.1);
+        color: var(--color-pine);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      body.dark .section-badge {
+        background: rgba(74, 222, 128, 0.15);
+        color: #4ade80;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        color: var(--color-charcoal);
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--color-stone);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Timeline Section */
+      .timeline-section {
+        background: var(--color-cream-dark);
+      }
+
+      body.dark .timeline-section {
+        background: #242424;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--color-pine), var(--color-copper));
+        transform: translateX(-50%);
+      }
+
+      body.dark .timeline::before {
+        background: linear-gradient(to bottom, #4ade80, #f59e0b);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        text-align: right;
+        grid-column: 1;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-date {
+        grid-column: 2;
+        text-align: left;
+        padding-left: 2rem;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+        grid-column: 2;
+      }
+
+      .timeline-item:nth-child(even) .timeline-date {
+        grid-column: 1;
+        text-align: right;
+        padding-right: 2rem;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        top: 2.5rem;
+        width: 20px;
+        height: 20px;
+        background: var(--color-pine);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        border: 4px solid var(--color-cream-dark);
+        z-index: 1;
+      }
+
+      body.dark .timeline-dot {
+        background: #4ade80;
+        border-color: #242424;
+      }
+
+      .timeline-date {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 0.5rem;
+      }
+
+      .timeline-date span {
+        background: rgba(15, 76, 58, 0.1);
+        color: var(--color-pine);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      body.dark .timeline-date span {
+        background: rgba(74, 222, 128, 0.15);
+        color: #4ade80;
+      }
+
+      .timeline-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      body.dark .timeline-card {
+        background: #2d2d2d;
+      }
+
+      .timeline-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-icon {
+        margin-left: auto;
+      }
+
+      .timeline-card h4 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-charcoal);
+      }
+
+      .timeline-card p {
+        color: var(--color-stone);
+        font-size: 0.9rem;
+      }
+
+      .timeline-card .gpa {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--color-gold), var(--color-copper));
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+
+      /* Tutoring Section */
+      .tutoring-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .tutoring-card {
+        padding: 2.5rem;
+        border-radius: 24px;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tutoring-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .tutoring-card.one-on-one {
+        background: linear-gradient(135deg, var(--color-pine), var(--color-pine-light));
+      }
+
+      body.dark .tutoring-card.one-on-one {
+        background: linear-gradient(135deg, #065f46, #047857);
+      }
+
+      .tutoring-card.group {
+        background: linear-gradient(135deg, var(--color-copper), var(--color-copper-light));
+      }
+
+      body.dark .tutoring-card.group {
+        background: linear-gradient(135deg, #b45309, #d97706);
+      }
+
+      .tutoring-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .tutoring-card-icon {
+        width: 64px;
+        height: 64px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+      }
+
+      .tutoring-card-title h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .tutoring-card-title span {
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      .tutoring-features {
+        list-style: none;
+      }
+
+      .tutoring-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .tutoring-features li:last-child {
+        border-bottom: none;
+      }
+
+      .tutoring-features li i {
+        color: rgba(255, 255, 255, 0.6);
+        width: 20px;
+      }
+
+      /* Subjects Grid */
+      .subjects-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .subjects-header h3 {
+        font-size: 1.75rem;
+        color: var(--color-charcoal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .subjects-header h3 i {
+        color: var(--color-pine);
+      }
+
+      body.dark .subjects-header h3 i {
+        color: #4ade80;
+      }
+
+      .subjects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .subject-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 76, 58, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      body.dark .subject-card {
+        background: #2d2d2d;
+        border-color: rgba(74, 222, 128, 0.1);
+      }
+
+      .subject-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--color-pine);
+      }
+
+      body.dark .subject-card:hover {
+        border-color: #4ade80;
+      }
+
+      .subject-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+
+      .subject-content h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        color: var(--color-charcoal);
+      }
+
+      .subject-content p {
+        font-size: 0.875rem;
+        color: var(--color-stone);
+      }
+
+      /* CTA Banner */
+      .cta-banner {
+        background: linear-gradient(135deg, var(--color-pine), var(--color-pine-dark));
+        border-radius: 24px;
+        padding: 3rem;
+        text-align: center;
+        color: white;
+        margin-top: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body.dark .cta-banner {
+        background: linear-gradient(135deg, #065f46, #064e3b);
+      }
+
+      .cta-banner::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+      }
+
+      .cta-banner h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-banner p {
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .cta-btn.primary {
+        background: var(--color-copper);
+        color: white;
+      }
+
+      body.dark .cta-btn.primary {
+        background: #f59e0b;
+        color: #1a1a1a;
+      }
+
+      .cta-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-btn.secondary {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      /* QR Section */
+      .qr-section {
+        background: var(--color-cream-dark);
+      }
+
+      body.dark .qr-section {
+        background: #242424;
+      }
+
+      .qr-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .qr-visual {
+        display: flex;
+        justify-content: center;
+      }
+
+      .qr-frame {
+        background: white;
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      body.dark .qr-frame {
+        background: #2d2d2d;
+      }
+
+      .qr-frame::before {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        background: linear-gradient(135deg, var(--color-pine), var(--color-copper));
+        border-radius: 28px;
+        z-index: -1;
+        opacity: 0.2;
+      }
+
+      .qr-frame img {
+        width: 250px;
+        height: 250px;
+        border-radius: 16px;
+      }
+
+      .qr-info h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-charcoal);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .qr-info h4 i {
+        color: var(--color-pine);
+      }
+
+      body.dark .qr-info h4 i {
+        color: #4ade80;
+      }
+
+      .qr-steps {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .qr-steps li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(15, 76, 58, 0.1);
+      }
+
+      body.dark .qr-steps li {
+        border-bottom-color: rgba(74, 222, 128, 0.1);
+      }
+
+      .step-number {
+        width: 36px;
+        height: 36px;
+        background: var(--color-pine);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+        flex-shrink: 0;
+      }
+
+      body.dark .step-number {
+        background: #4ade80;
+        color: #1a1a1a;
+      }
+
+      .qr-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .qr-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        font-size: 0.95rem;
+      }
+
+      .qr-btn.primary {
+        background: var(--color-pine);
+        color: white;
+      }
+
+      body.dark .qr-btn.primary {
+        background: #4ade80;
+        color: #1a1a1a;
+      }
+
+      .qr-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(15, 76, 58, 0.3);
+      }
+
+      .qr-btn.outline {
+        background: transparent;
+        color: var(--color-charcoal);
+        border: 2px solid rgba(15, 76, 58, 0.2);
+      }
+
+      body.dark .qr-btn.outline {
+        border-color: rgba(74, 222, 128, 0.3);
+      }
+
+      .qr-btn.outline:hover {
+        border-color: var(--color-pine);
+        background: rgba(15, 76, 58, 0.05);
+      }
+
+      body.dark .qr-btn.outline:hover {
+        border-color: #4ade80;
+        background: rgba(74, 222, 128, 0.1);
+      }
+
+      /* Social Section */
+      .social-grid {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: white;
+        padding: 1.25rem 2rem;
+        border-radius: 16px;
+        text-decoration: none;
+        border: 1px solid rgba(15, 76, 58, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      body.dark .social-link {
+        background: #2d2d2d;
+        border-color: rgba(74, 222, 128, 0.1);
+      }
+
+      .social-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--color-pine);
+      }
+
+      body.dark .social-link:hover {
+        border-color: #4ade80;
+      }
+
+      .social-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: white;
+      }
+
+      .social-icon.facebook { background: #1877f2; }
+      .social-icon.github { background: #333; }
+      body.dark .social-icon.github { background: #555; }
+      .social-icon.youtube { background: #ff0000; }
+
+      .social-text {
+        font-weight: 600;
+        color: var(--color-charcoal);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--color-pine);
+        color: white;
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      body.dark footer {
+        background: #0d3d2e;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-brand p {
+        opacity: 0.8;
+        line-height: 1.8;
+        max-width: 300px;
+      }
+
+      .footer-links h4 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.6;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        opacity: 0.6;
+        font-size: 0.9rem;
+      }
+
+      /* Back to Top */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--color-pine);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 50;
+        box-shadow: 0 5px 20px rgba(15, 76, 58, 0.3);
+      }
+
+      body.dark .back-to-top {
+        background: #4ade80;
+        color: #1a1a1a;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Scroll Progress */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--color-pine), var(--color-copper));
+        z-index: 200;
+        transition: width 0.1s ease;
+      }
+
+      body.dark .scroll-progress {
+        background: linear-gradient(90deg, #4ade80, #f59e0b);
+      }
+
+      /* Notification */
+      .notification {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 1000;
+        transform: translateX(120%);
+        transition: transform 0.3s ease;
+      }
+
+      body.dark .notification {
+        background: #2d2d2d;
+      }
+
+      .notification.show {
+        transform: translateX(0);
+      }
+
+      .notification.success {
+        border-left: 4px solid #22c55e;
+      }
+
+      .notification.error {
+        border-left: 4px solid #ef4444;
+      }
+
+      .notification-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-stone);
+        padding: 0.25rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          text-align: center;
+        }
+
+        .hero-content {
+          order: 2;
+        }
+
+        .hero-visual {
+          order: 1;
+        }
+
+        .hero-subtitle {
+          margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+          justify-content: center;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+
+        .hero-card-1, .hero-card-2 {
+          display: none;
+        }
+
+        .tutoring-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .qr-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .footer-brand p {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links, .nav-cta {
+          display: none;
+        }
+
+        .mobile-toggle {
+          display: flex;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .hero {
+          padding: 6rem 1.5rem 3rem;
+          min-height: auto;
+        }
+
+        .hero-image-wrapper {
+          max-width: 300px;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          padding-left: 50px;
+        }
+
+        .timeline-dot {
+          left: 20px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content,
+        .timeline-item:nth-child(even) .timeline-content {
+          text-align: left;
+          grid-column: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date,
+        .timeline-item:nth-child(even) .timeline-date {
+          text-align: left;
+          padding: 0;
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+          margin-left: 0;
+        }
+
+        .qr-buttons {
+          flex-direction: column;
+        }
+
+        .social-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .social-link {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
       }
     </style>
   </head>
-  <body class="bg-white dark:bg-gray-900 min-h-screen font-sans text-black dark:text-white overflow-x-hidden transition-colors duration-300">
-    <!-- Scroll Progress Indicator -->
-    <div
-      class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 z-50 transition-all duration-300"
-      id="scrollProgress"
-    ></div>
+  <body class="topo-pattern">
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Navigation Menu -->
-    <nav
-      class="fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 transition-all duration-300"
-      id="mainNav"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="text-2xl font-bold text-blue-600">
-            <span class="text-blue-600">NTH</span>
+    <!-- Navigation -->
+    <nav class="nav-main" id="mainNav">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <div class="nav-logo-icon">
+            <i class="fas fa-code"></i>
           </div>
+          NTH
+        </a>
 
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-8">
-            <ul class="flex space-x-8" id="navMenu">
-              <li>
-                <a
-                  href="#header"
-                  class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 relative group"
-                >
-                  Trang chủ
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#timeline-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Quá trình
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#tutoring-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Dạy kèm
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#qr-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Zalo
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#social-section"
-                  class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  Liên kết
-                  <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
-            
-            <!-- Dark Mode Toggle -->
-            <button
-              id="darkModeToggleDesktop"
-              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group"
-            >
-              <i class="fas fa-sun text-yellow-500 dark:hidden group-hover:scale-110 transition-transform"></i>
-              <i class="fas fa-moon text-blue-400 hidden dark:block group-hover:scale-110 transition-transform"></i>
-            </button>
-          </div>
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Trang chủ</a></li>
+          <li><a href="#timeline">Quá trình</a></li>
+          <li><a href="#tutoring">Dạy kèm</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
 
-          <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center space-x-3">
-            <!-- Dark Mode Toggle -->
-            <button
-              id="darkModeToggle"
-              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
-            >
-              <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
-              <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
-            </button>
-            
-            <button
-              class="nav-toggle flex flex-col justify-center items-center w-6 h-6 space-y-1"
-              id="navToggle"
-            >
-              <span
-                class="block w-5 h-0.5 bg-blue-600 transition-transform duration-300"
-              ></span>
-              <span
-                class="block w-5 h-0.5 bg-blue-600 transition-opacity duration-300"
-              ></span>
-              <span
-                class="block w-5 h-0.5 bg-blue-600 transition-transform duration-300"
-              ></span>
-            </button>
-          </div>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <a href="https://forms.gle/HPiQYa7mNZGFmr9CA" target="_blank" class="nav-cta">
+            Đăng ký học
+          </a>
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden" id="mobileMenu">
-          <div
-            class="px-2 pt-2 pb-3 space-y-1 bg-white border border-blue-200 rounded-lg mt-2"
-          >
-            <a
-              href="#header"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Trang chủ</a
-            >
-            <a
-              href="#timeline-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Quá trình</a
-            >
-            <a
-              href="#tutoring-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Dạy kèm</a
-            >
-            <a
-              href="#qr-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Zalo</a
-            >
-            <a
-              href="#social-section"
-              class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-              >Liên kết</a
-            >
-          </div>
-        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
 
-    <div class="min-h-screen pt-16">
-      <!-- Header Section -->
-      <section
-        class="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900"
-        id="header"
-      >
-        <div
-          class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <div>
-            <img
-              src="assets/avatar.jpg"
-              alt="Nguyễn Trọng Hiếu"
-              class="w-32 h-32 lg:w-40 lg:h-40 rounded-full mx-auto mb-6 border-4 border-white dark:border-gray-700 shadow-xl ring-4 ring-blue-100 dark:ring-blue-900 object-cover avatar"
-            />
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-menu-links">
+        <li><a href="#hero">Trang chủ</a></li>
+        <li><a href="#timeline">Quá trình</a></li>
+        <li><a href="#tutoring">Dạy kèm</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+        <li><a href="https://forms.gle/HPiQYa7mNZGFmr9CA" target="_blank">Đăng ký học</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-map-marker-alt"></i>
+            Đại học Đà Lạt
           </div>
-          <h1 class="text-3xl lg:text-5xl font-bold mb-2 text-gray-900 dark:text-white">
-            Nguyễn Trọng Hiếu
+          
+          <h1 class="hero-title">
+            Xin chào, tôi là<br>
+            <span class="highlight">Nguyễn Trọng Hiếu</span>
           </h1>
-          <p class="text-lg lg:text-xl text-blue-600 dark:text-blue-400 mb-4 font-medium">
-            @DalatCoder
+          
+          <p class="hero-subtitle">
+            Giảng viên Công nghệ Thông tin với đam mê truyền đạt kiến thức lập trình và công nghệ hiện đại đến thế hệ trẻ.
           </p>
-          <p
-            class="text-lg lg:text-xl text-blue-700 dark:text-blue-300 max-w-2xl mx-auto leading-relaxed font-medium"
-          >
-            Giảng viên tại Khoa Công nghệ Thông tin<br />
-            Trường Đại học Đà Lạt
-          </p>
-          <div class="mt-6">
-            <a
-              href="mailto:nguyentronghieu.dlc@gmail.com"
-              class="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-medium"
-            >
-              <i class="fas fa-envelope"></i>
-              <span>nguyentronghieu.dlc@gmail.com</span>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">3.85</div>
+              <div class="stat-label">GPA Thủ khoa</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Năm kinh nghiệm</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">8+</div>
+              <div class="stat-label">Lĩnh vực giảng dạy</div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://forms.gle/HPiQYa7mNZGFmr9CA" target="_blank" class="btn-primary">
+              <i class="fas fa-graduation-cap"></i>
+              Đăng ký học ngay
+            </a>
+            <a href="#contact" class="btn-secondary">
+              <i class="fab fa-facebook-messenger"></i>
+              Liên hệ tư vấn
             </a>
           </div>
         </div>
-      </section>
 
-      <!-- Timeline Section -->
-      <section class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900" id="timeline-section">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              Quá trình học tập và công tác
-            </h3>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center"
-                >
-                  <i class="fas fa-graduation-cap text-white text-lg"></i>
-                </div>
-                <span
-                  class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
-                  >2015 - 2018</span
-                >
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-bg"></div>
+            <img src="assets/avatar.jpg" alt="Nguyễn Trọng Hiếu" class="hero-image">
+            
+            <div class="hero-card hero-card-1">
+              <div class="hero-card-icon green">
+                <i class="fas fa-laptop-code"></i>
               </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Trường THPT Nguyễn Bỉnh Khiêm
-              </h4>
-              <p class="text-gray-600">Xã Tahine, tỉnh Lâm Đồng</p>
+              <div class="hero-card-text">
+                <strong>Full-stack Dev</strong>
+                <span>React, Node.js, .NET</span>
+              </div>
             </div>
 
-            <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center"
-                >
-                  <i class="fas fa-university text-white text-lg"></i>
-                </div>
-                <span
-                  class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
-                  >2018 - 2023</span
-                >
+            <div class="hero-card hero-card-2">
+              <div class="hero-card-icon copper">
+                <i class="fas fa-chalkboard-teacher"></i>
               </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Trường Đại học Đà Lạt
-              </h4>
-              <p class="text-gray-600">
-                01 Phù Đổng Thiên Vương, Phường Lâm Viên - Đà Lạt, Lâm Đồng
-              </p>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-yellow-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-full flex items-center justify-center"
-                >
-                  <i class="fas fa-medal text-white text-lg"></i>
-                </div>
-                <span
-                  class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium"
-                  >01/2023</span
-                >
+              <div class="hero-card-text">
+                <strong>Giảng viên</strong>
+                <span>Khoa CNTT - DLU</span>
               </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Tốt nghiệp thủ khoa ngành Công nghệ Thông tin hệ Kỹ sư
-              </h4>
-              <p class="text-gray-600">
-                Trường Đại học Đà Lạt, GPA:
-                <span
-                  class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-bold"
-                  >3.85/4.0</span
-                >
-              </p>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-orange-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center"
-                >
-                  <i class="fas fa-users text-white text-lg"></i>
-                </div>
-                <span
-                  class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium"
-                  >01/2023 - 06/2024</span
-                >
-              </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Team Leader - Kỹ sư lập trình
-              </h4>
-              <p class="text-gray-600">
-                Công ty TNHH DOIT SOLUTIONS<br />
-                2/9 Phạm Ngũ Lão, Phường Xuân Hương - Đà Lạt, Lâm Đồng
-              </p>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-6 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center"
-                >
-                  <i class="fas fa-briefcase text-white text-lg"></i>
-                </div>
-                <span
-                  class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium"
-                  >12/2024 - Hiện nay</span
-                >
-              </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">
-                Giảng viên tại Khoa Công nghệ Thông tin
-              </h4>
-              <p class="text-gray-600">
-                Trường Đại học Đà Lạt, 01 Phù Đổng Thiên Vương, Phường Lâm Viên
-                - Đà Lạt, Lâm Đồng
-              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Tutoring Services Section -->
-      <section class="py-20 relative" id="tutoring-section">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Dịch vụ Dạy kèm
-            </h3>
-            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Hỗ trợ học tập 1-1 hoặc nhóm nhỏ với phương pháp giảng dạy cá nhân hóa
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">
+            <i class="fas fa-route"></i>
+            Hành trình
+          </div>
+          <h2 class="section-title">Quá trình học tập & công tác</h2>
+          <p class="section-subtitle">
+            Từ sinh viên thủ khoa đến giảng viên đại học - một hành trình không ngừng học hỏi
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"><span>2015 - 2018</span></div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-icon" style="background: rgba(15, 76, 58, 0.1); color: var(--color-pine);">
+                  <i class="fas fa-school"></i>
+                </div>
+                <h4>THPT Nguyễn Bỉnh Khiêm</h4>
+                <p>Xã Tahine, tỉnh Lâm Đồng</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"><span>2018 - 2023</span></div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                  <i class="fas fa-university"></i>
+                </div>
+                <h4>Đại học Đà Lạt</h4>
+                <p>Kỹ sư Công nghệ Thông tin</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"><span>01/2023</span></div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-icon" style="background: rgba(212, 168, 75, 0.1); color: var(--color-gold);">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <h4>Tốt nghiệp Thủ khoa</h4>
+                <p>Ngành CNTT hệ Kỹ sư - Đại học Đà Lạt</p>
+                <span class="gpa">GPA: 3.85/4.0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"><span>2023 - 2024</span></div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-icon" style="background: rgba(201, 120, 74, 0.1); color: var(--color-copper);">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h4>Team Leader - Kỹ sư lập trình</h4>
+                <p>DOIT SOLUTIONS - Đà Lạt</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"><span>12/2024 - Nay</span></div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h4>Giảng viên Khoa CNTT</h4>
+                <p>Trường Đại học Đà Lạt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tutoring Section -->
+    <section id="tutoring">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">
+            <i class="fas fa-graduation-cap"></i>
+            Dịch vụ
+          </div>
+          <h2 class="section-title">Dạy kèm lập trình</h2>
+          <p class="section-subtitle">
+            Hỗ trợ học tập 1-1 hoặc nhóm nhỏ với phương pháp giảng dạy cá nhân hóa
+          </p>
+        </div>
+
+        <div class="tutoring-grid">
+          <div class="tutoring-card one-on-one">
+            <div class="tutoring-card-header">
+              <div class="tutoring-card-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="tutoring-card-title">
+                <h3>Dạy kèm 1-1</h3>
+                <span>Học cá nhân hóa</span>
+              </div>
+            </div>
+            <ul class="tutoring-features">
+              <li>
+                <i class="fas fa-check"></i>
+                Lộ trình học tập riêng biệt
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Giải đáp thắc mắc ngay lập tức
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Tiến độ linh hoạt theo năng lực
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Thời gian học tập linh động
+              </li>
+            </ul>
+          </div>
+
+          <div class="tutoring-card group">
+            <div class="tutoring-card-header">
+              <div class="tutoring-card-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="tutoring-card-title">
+                <h3>Dạy kèm nhóm</h3>
+                <span>3 - 5 người / nhóm</span>
+              </div>
+            </div>
+            <ul class="tutoring-features">
+              <li>
+                <i class="fas fa-check"></i>
+                Học phí tiết kiệm hơn
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Trao đổi, hỗ trợ lẫn nhau
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Môi trường học tập tích cực
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                Thực hành dự án nhóm
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subjects-header">
+          <h3>
+            <i class="fas fa-book-open"></i>
+            Các lĩnh vực dạy kèm
+          </h3>
+        </div>
+
+        <div class="subjects-grid">
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Tư duy lập trình cơ bản</h4>
+              <p>Python, JavaScript, C#, C++, PHP</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Trí tuệ nhân tạo tạo sinh</h4>
+              <p>ChatGPT, Google Gemini, NotebookLM</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Chứng chỉ Tin học Văn phòng</h4>
+              <p>Ôn tập Word, Excel, PowerPoint</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Cấu trúc dữ liệu & Giải thuật</h4>
+              <p>Nền tảng thuật toán cho lập trình viên</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Lập trình Web Frontend</h4>
+              <p>HTML/CSS/JS/React, triển khai dự án</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Lập trình Web Backend</h4>
+              <p>NodeJS, NextJS, ASP.NET Core, PHP</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+              <i class="fab fa-wordpress"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Lập trình CMS</h4>
+              <p>Xây dựng website với WordPress</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(234, 179, 8, 0.1); color: #eab308;">
+              <i class="fas fa-magic"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Low Code / No Code</h4>
+              <p>Xây dựng ứng dụng không cần code</p>
+            </div>
+          </div>
+
+          <div class="subject-card">
+            <div class="subject-icon" style="background: rgba(107, 114, 128, 0.1); color: #6b7280;">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="subject-content">
+              <h4>Lĩnh vực khác</h4>
+              <p>Liên hệ trực tiếp để trao đổi nhu cầu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-banner">
+          <h3><i class="fas fa-rocket"></i> Sẵn sàng bắt đầu?</h3>
+          <p>Đăng ký ngay hoặc liên hệ qua Zalo để được tư vấn lộ trình học tập phù hợp</p>
+          <div class="cta-buttons">
+            <a href="https://forms.gle/HPiQYa7mNZGFmr9CA" target="_blank" class="cta-btn primary">
+              <i class="fab fa-google"></i>
+              Đăng ký học
+            </a>
+            <a href="#contact" class="cta-btn secondary">
+              <i class="fas fa-comment-dots"></i>
+              Liên hệ qua Zalo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR/Contact Section -->
+    <section class="qr-section" id="contact">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">
+            <i class="fas fa-comments"></i>
+            Liên hệ
+          </div>
+          <h2 class="section-title">Kết nối ngay qua Zalo</h2>
+          <p class="section-subtitle">
+            Quét mã QR hoặc click để chat trực tiếp với tôi
+          </p>
+        </div>
+
+        <div class="qr-grid">
+          <div class="qr-visual">
+            <div class="qr-frame">
+              <img src="assets/QR.jpg" alt="QR Code Zalo - Nguyễn Trọng Hiếu">
+            </div>
+          </div>
+
+          <div class="qr-info">
+            <h4>
+              <i class="fab fa-whatsapp"></i>
+              Zalo: Nguyễn Trọng Hiếu
+            </h4>
+
+            <ul class="qr-steps">
+              <li>
+                <span class="step-number">1</span>
+                <span>Mở ứng dụng Zalo trên điện thoại</span>
+              </li>
+              <li>
+                <span class="step-number">2</span>
+                <span>Chọn "Quét mã QR" ở góc trên bên phải</span>
+              </li>
+              <li>
+                <span class="step-number">3</span>
+                <span>Hướng camera vào mã QR và bắt đầu chat</span>
+              </li>
+            </ul>
+
+            <div class="qr-buttons">
+              <button class="qr-btn primary" onclick="downloadQR()">
+                <i class="fas fa-download"></i>
+                Tải xuống QR
+              </button>
+              <button class="qr-btn outline" onclick="copyLink()">
+                <i class="fas fa-link"></i>
+                Sao chép link
+              </button>
+              <button class="qr-btn outline" onclick="shareQR()">
+                <i class="fas fa-share-alt"></i>
+                Chia sẻ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">
+            <i class="fas fa-link"></i>
+            Mạng xã hội
+          </div>
+          <h2 class="section-title">Theo dõi tôi</h2>
+        </div>
+
+        <div class="social-grid">
+          <a href="https://fb.com/dalatcoder" target="_blank" class="social-link">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <span class="social-text">Facebook</span>
+          </a>
+
+          <a href="https://github.com/dalatcoder" target="_blank" class="social-link">
+            <div class="social-icon github">
+              <i class="fab fa-github"></i>
+            </div>
+            <span class="social-text">GitHub</span>
+          </a>
+
+          <a href="https://youtube.com/@dalatcoder" target="_blank" class="social-link">
+            <div class="social-icon youtube">
+              <i class="fab fa-youtube"></i>
+            </div>
+            <span class="social-text">YouTube</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <h3>Nguyễn Trọng Hiếu</h3>
+            <p>
+              Giảng viên Công nghệ Thông tin tại Đại học Đà Lạt. Đam mê truyền đạt kiến thức công nghệ và giúp đỡ sinh viên phát triển kỹ năng lập trình.
             </p>
           </div>
 
-          <!-- Tutoring Types -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <!-- One-on-One -->
-            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700 rounded-2xl p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="flex items-center space-x-4 mb-6">
-                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                  <i class="fas fa-user-graduate text-3xl"></i>
-                </div>
-                <div>
-                  <h4 class="text-2xl font-bold">Dạy kèm 1-1</h4>
-                  <p class="text-blue-100">Học cá nhân hóa</p>
-                </div>
-              </div>
-              <ul class="space-y-3">
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Lộ trình học tập riêng biệt</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Giải đáp thắc mắc ngay lập tức</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Tiến độ linh hoạt theo năng lực</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Thời gian học tập linh động</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Small Group -->
-            <div class="bg-gradient-to-br from-purple-500 to-pink-600 dark:from-purple-600 dark:to-pink-700 rounded-2xl p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="flex items-center space-x-4 mb-6">
-                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                  <i class="fas fa-users text-3xl"></i>
-                </div>
-                <div>
-                  <h4 class="text-2xl font-bold">Dạy kèm nhóm nhỏ</h4>
-                  <p class="text-purple-100">3 - 5 người / nhóm</p>
-                </div>
-              </div>
-              <ul class="space-y-3">
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Học phí tiết kiệm hơn</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Trao đổi, hỗ trợ lẫn nhau</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Môi trường học tập tích cực</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <i class="fas fa-check-circle text-green-300"></i>
-                  <span>Thực hành dự án nhóm</span>
-                </li>
-              </ul>
-            </div>
+          <div class="footer-links">
+            <h4>Điều hướng</h4>
+            <ul>
+              <li><a href="#hero">Trang chủ</a></li>
+              <li><a href="#timeline">Quá trình</a></li>
+              <li><a href="#tutoring">Dạy kèm</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+            </ul>
           </div>
 
-          <!-- Subject Areas -->
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-blue-100 dark:border-gray-700">
-            <h4 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              <i class="fas fa-book-open text-blue-600 dark:text-blue-400 mr-3"></i>
-              Các lĩnh vực dạy kèm
-            </h4>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <!-- Programming Basics -->
-              <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-blue-500 dark:bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-code text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Tư duy lập trình cơ bản</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Python, JavaScript, C#, C++, PHP</p>
-              </div>
-
-              <!-- Gen AI -->
-              <div class="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-purple-500 dark:bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-robot text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Trí tuệ nhân tạo tạo sinh</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">ChatGPT, Google Gemini, NotebookLM,...</p>
-              </div>
-
-              <!-- Office Certification -->
-              <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-green-500 dark:bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-file-alt text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Chứng chỉ Tin học Văn phòng</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Ôn tập Word, Excel, PowerPoint</p>
-              </div>
-
-              <!-- Data Structures & Algorithms -->
-              <div class="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-6 border border-orange-200 dark:border-orange-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-orange-500 dark:bg-orange-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-project-diagram text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Cấu trúc dữ liệu & Giải thuật</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Nền tảng thuật toán cho lập trình viên</p>
-              </div>
-
-              <!-- Frontend Development -->
-              <div class="bg-cyan-50 dark:bg-cyan-900/20 rounded-xl p-6 border border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-cyan-500 dark:bg-cyan-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-laptop-code text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Lập trình Web Frontend</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">HTML/CSS/JS/React, triển khai dự án</p>
-              </div>
-
-              <!-- Backend Development -->
-              <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-indigo-500 dark:bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-server text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Lập trình Web Backend</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">NodeJS, NextJS, ASP.NET Core, PHP</p>
-              </div>
-
-              <!-- WordPress CMS -->
-              <div class="bg-red-50 dark:bg-red-900/20 rounded-xl p-6 border border-red-200 dark:border-red-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-red-500 dark:bg-red-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fab fa-wordpress text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Lập trình CMS</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Xây dựng website với WordPress</p>
-              </div>
-
-              <!-- Low Code / No Code -->
-              <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 bg-yellow-500 dark:bg-yellow-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-magic text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Low Code / No Code</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Xây dựng ứng dụng không cần code</p>
-              </div>
-
-              <!-- Custom Request -->
-              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center">
-                <div class="w-12 h-12 bg-gray-500 dark:bg-gray-600 rounded-xl flex items-center justify-center mb-4">
-                  <i class="fas fa-comments text-white text-xl"></i>
-                </div>
-                <h5 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Lĩnh vực khác</h5>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Liên hệ trực tiếp để trao đổi về nhu cầu của bạn</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <div class="text-center mt-12">
-            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-2xl p-8 inline-block shadow-xl">
-              <h4 class="text-2xl font-bold text-white mb-4">
-                <i class="fas fa-graduation-cap mr-2"></i>
-                Sẵn sàng bắt đầu?
-              </h4>
-              <p class="text-blue-100 mb-6">
-                Đăng ký ngay hoặc liên hệ qua Zalo để được tư vấn lộ trình học tập
-              </p>
-              <div class="flex flex-wrap justify-center gap-4">
-                <a
-                  href="https://forms.gle/HPiQYa7mNZGFmr9CA"
-                  target="_blank"
-                  class="inline-flex items-center space-x-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl"
-                >
-                  <i class="fab fa-google text-xl"></i>
-                  <span>Đăng ký học</span>
-                </a>
-                <a
-                  href="#qr-section"
-                  class="inline-flex items-center space-x-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl"
-                >
-                  <i class="fab fa-whatsapp text-xl"></i>
-                  <span>Liên hệ qua Zalo</span>
-                </a>
-              </div>
-            </div>
+          <div class="footer-links">
+            <h4>Liên hệ</h4>
+            <ul>
+              <li><a href="mailto:nguyentronghieu.dlc@gmail.com">Email</a></li>
+              <li><a href="https://fb.com/dalatcoder" target="_blank">Facebook</a></li>
+              <li><a href="https://github.com/dalatcoder" target="_blank">GitHub</a></li>
+              <li><a href="https://youtube.com/@dalatcoder" target="_blank">YouTube</a></li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      <!-- QR Code Section -->
-      <section
-        class="py-20 relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
-        id="qr-section"
-      >
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Kết nối ngay qua Zalo
-            </h3>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- QR Code -->
-            <div class="flex justify-center">
-              <div class="relative">
-                <div
-                  class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-blue-200 dark:border-gray-700"
-                >
-                  <img
-                    src="assets/QR.jpg"
-                    alt="QR Code Zalo - Nguyễn Trọng Hiếu"
-                    class="w-64 h-64 rounded-xl"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- QR Info -->
-            <div class="space-y-8">
-              <div
-                class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-gray-700"
-              >
-                <div class="flex items-center space-x-4 mb-6">
-                  <div
-                    class="w-12 h-12 bg-blue-500 dark:bg-blue-600 rounded-xl flex items-center justify-center"
-                  >
-                    <i class="fab fa-whatsapp text-white text-xl"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Zalo Chat
-                    </h4>
-                    <p class="text-blue-600 dark:text-blue-400">Nguyễn Trọng Hiếu</p>
-                  </div>
-                </div>
-
-                <div class="space-y-4">
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
-                    >
-                      1
-                    </div>
-                    <span class="text-gray-700 dark:text-gray-300">Mở ứng dụng Zalo</span>
-                  </div>
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
-                    >
-                      2
-                    </div>
-                    <span class="text-gray-700 dark:text-gray-300">Chọn "Quét mã QR"</span>
-                  </div>
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
-                    >
-                      3
-                    </div>
-                    <span class="text-gray-700 dark:text-gray-300">Hướng camera vào mã QR</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action buttons -->
-              <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <button
-                  onclick="downloadQR()"
-                  class="px-6 py-3 bg-blue-600 dark:bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors flex items-center space-x-2 shadow-lg hover:shadow-xl"
-                >
-                  <i class="fas fa-download"></i>
-                  <span>Tải xuống QR</span>
-                </button>
-                <button
-                  onclick="copyLink()"
-                  class="px-6 py-3 bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 rounded-lg font-semibold hover:bg-blue-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
-                >
-                  <i class="fas fa-link"></i>
-                  <span>Sao chép link</span>
-                </button>
-                <button
-                  onclick="shareQR()"
-                  class="px-6 py-3 bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 rounded-lg font-semibold hover:bg-blue-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
-                >
-                  <i class="fas fa-share-alt"></i>
-                  <span>Chia sẻ</span>
-                </button>
-              </div>
-            </div>
-          </div>
+        <div class="footer-bottom">
+          <p>© 2025 Nguyễn Trọng Hiếu. Được tạo với ❤️ tại Đà Lạt</p>
         </div>
-      </section>
+      </div>
+    </footer>
 
-      <!-- Social Media Section -->
-      <section
-        class="py-20 relative"
-        id="social-section"
-      >
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Kết nối với tôi
-            </h3>
-          </div>
-
-          <div class="flex flex-wrap justify-center gap-6">
-            <a
-              href="https://fb.com/dalatcoder"
-              target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
-            >
-              <div
-                class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-full flex items-center justify-center"
-              >
-                <i class="fab fa-facebook-f text-white"></i>
-              </div>
-              <span class="text-gray-900 dark:text-white font-medium">Facebook</span>
-            </a>
-
-            <a
-              href="https://github.com/dalatcoder"
-              target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
-            >
-              <div
-                class="w-8 h-8 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center"
-              >
-                <i class="fab fa-github text-white"></i>
-              </div>
-              <span class="text-gray-900 dark:text-white font-medium">GitHub</span>
-            </a>
-
-            <a
-              href="https://youtube.com/@dalatcoder"
-              target="_blank"
-              class="flex items-center space-x-3 px-8 py-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300"
-            >
-              <div
-                class="w-8 h-8 bg-red-600 dark:bg-red-500 rounded-full flex items-center justify-center"
-              >
-                <i class="fab fa-youtube text-white"></i>
-              </div>
-              <span class="text-gray-900 dark:text-white font-medium">YouTube</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer Section -->
-      <footer class="py-12 border-t border-blue-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p class="text-gray-600 dark:text-gray-400">
-            &copy; 2025 Nguyễn Trọng Hiếu. Được tạo với
-            <span class="text-red-500">❤️</span>
-          </p>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Back to Top Button -->
-    <a
-      href="#header"
-      class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 opacity-0 invisible"
-      id="backToTop"
-    >
+    <!-- Back to Top -->
+    <a href="#hero" class="back-to-top" id="backToTop">
       <i class="fas fa-chevron-up"></i>
     </a>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
-    
-    <!-- Dark Mode Enhancements Script -->
+    <!-- Notification Container -->
+    <div class="notification" id="notification">
+      <span id="notificationText"></span>
+      <button class="notification-close" onclick="hideNotification()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
     <script>
-      // Apply dark mode classes to all relevant elements after page load
-      document.addEventListener('DOMContentLoaded', function() {
-        // Add dark mode classes to common elements
-        const elementsToUpdate = [
-          { selector: '.bg-white', classes: 'dark:bg-gray-800' },
-          { selector: '.text-gray-900', classes: 'dark:text-white' },
-          { selector: '.text-gray-700', classes: 'dark:text-gray-300' },
-          { selector: '.text-gray-600', classes: 'dark:text-gray-400' },
-          { selector: '.border-blue-100', classes: 'dark:border-gray-700' },
-          { selector: '.hover\\:border-blue-200', classes: 'dark:hover:border-blue-600' },
-          { selector: '.bg-blue-50', classes: 'dark:bg-gray-800' },
-          { selector: '.bg-indigo-50', classes: 'dark:bg-gray-800' },
-          { selector: '.border-t', classes: 'dark:border-gray-700' }
-        ];
-        
-        elementsToUpdate.forEach(({ selector, classes }) => {
-          document.querySelectorAll(selector).forEach(el => {
-            el.className += ' ' + classes;
-          });
+      // Theme Toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeIcon.classList.replace(
+          isDark ? 'fa-moon' : 'fa-sun',
+          isDark ? 'fa-sun' : 'fa-moon'
+        );
+      });
+
+      // Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
         });
-        
-        // Update notification styles for dark mode
-        const originalShowNotification = window.showNotification;
-        if (originalShowNotification) {
-          window.showNotification = function(message, type = "info") {
-            // Remove existing notification if any
-            const existingNotification = document.querySelector(".notification");
-            if (existingNotification) {
-              existingNotification.remove();
-            }
+      });
 
-            // Create notification element with dark mode support
-            const notification = document.createElement("div");
-            notification.className = `notification fixed top-4 right-4 max-w-sm bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border border-blue-200 dark:border-gray-600 z-50 transition-all duration-300 transform translate-x-full`;
+      // Scroll Progress & Navigation
+      const nav = document.getElementById('mainNav');
+      const scrollProgress = document.getElementById('scrollProgress');
+      const backToTop = document.getElementById('backToTop');
+      const navLinks = document.querySelectorAll('.nav-links a');
 
-            const borderColor =
-              type === "success"
-                ? "border-l-4 border-green-500"
-                : type === "error"
-                ? "border-l-4 border-red-500"
-                : "border-l-4 border-blue-500";
+      window.addEventListener('scroll', () => {
+        // Scroll progress
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = scrollPercent + '%';
 
-            notification.className += ` ${borderColor}`;
-
-            notification.innerHTML = `
-              <div class="flex items-center justify-between space-x-3">
-                  <span class="text-gray-900 dark:text-white font-medium text-sm flex-1">${message}</span>
-                  <button class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 rounded-full hover:bg-blue-50 dark:hover:bg-gray-700" onclick="this.parentElement.parentElement.remove()">
-                      <i class="fas fa-times text-sm"></i>
-                  </button>
-              </div>
-            `;
-
-            // Add to page
-            document.body.appendChild(notification);
-
-            // Animate in
-            setTimeout(() => {
-              notification.classList.remove("translate-x-full");
-              notification.classList.add("translate-x-0");
-            }, 100);
-
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-              if (notification.parentNode) {
-                notification.classList.add("translate-x-full");
-                setTimeout(() => {
-                  if (notification.parentNode) {
-                    notification.remove();
-                  }
-                }, 300);
-              }
-            }, 5000);
-          };
+        // Nav background
+        if (scrollTop > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
         }
+
+        // Back to top button
+        if (scrollTop > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + sectionId) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      });
+
+      // Smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // QR Functions
+      function downloadQR() {
+        const link = document.createElement('a');
+        link.href = 'assets/QR.jpg';
+        link.download = 'Zalo-QR-NguyenTrongHieu.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showNotification('Đã tải xuống mã QR thành công!', 'success');
+      }
+
+      function copyLink() {
+        const url = window.location.href;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(() => {
+            showNotification('Đã sao chép link website!', 'success');
+          });
+        } else {
+          // Fallback
+          const textarea = document.createElement('textarea');
+          textarea.value = url;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          showNotification('Đã sao chép link website!', 'success');
+        }
+      }
+
+      function shareQR() {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Nguyễn Trọng Hiếu - Giảng viên CNTT',
+            text: 'Kết nối với Nguyễn Trọng Hiếu qua Zalo',
+            url: window.location.href
+          }).then(() => {
+            showNotification('Đã chia sẻ thành công!', 'success');
+          }).catch(() => {
+            copyLink();
+          });
+        } else {
+          copyLink();
+        }
+      }
+
+      // Notification
+      function showNotification(message, type = 'success') {
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        
+        notificationText.textContent = message;
+        notification.className = 'notification ' + type + ' show';
+        
+        setTimeout(() => {
+          hideNotification();
+        }, 4000);
+      }
+
+      function hideNotification() {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('show');
+      }
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll('.timeline-item, .subject-card, .social-link').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease ' + (index * 0.1) + 's';
+        observer.observe(el);
       });
     </script>
   </body>
